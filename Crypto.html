@@ -30,20 +30,19 @@ MathJax.Hub.Config({
 <h1>Research</h1>
 </div>
 	
-<h2>Communication Complexity of Key Agreement Protocols in Random Oracle Model</h2>
+<h2>Communication Lower Bounds of Key-Agreement Protocols via Density Increment Arguments</h2>
 <p>(with Mi-Ying Huang, Xinyu Mao, and Jiapeng Zhang)
 </p>
 <p>
-Key-agreement protocols with provable security in the random oracle model (ROM) are an important alternative to protocols based on public-key cryptography. In ROM, all parties including the eavesdropper have access to a random oracle. The random oracle serves as an ideal hard function in symmetric cryptography. Unfortunately, as shown by Impagliazzo and Rudich (STOC 1989) and Barak and Mahmoody (Crypto 2009), such protocols can only guarantee limited secrecy: the key of any \(\ell\)-query protocol can be revealed by an \(O(\ell^2)\)-query adversary. This quadratic gap between the query complexity of the honest parties and the eavesdropper matches the gap obtained by the protocol of Merkle (CACM ’78), known as  Merkle's Puzzles. Hence the current bound on the query complexity of key-agreement protocols is tight.
+Key-agreement protocols with provable security in the random oracle model (ROM) are an essential alternative to protocols based on public-key cryptography. In ROM, all parties, including the eavesdropper, have oracle access to a random function. 
+The random oracle serves as an ideal hash function in symmetric cryptography. Hence, it is interesting to study the existence of key-agreement protocols in ROM. Unfortunately, as shown by Impagliazzo and Rudich (STOC 1989) and Barak and Mahmoody (Crypto 2009), such protocols can only guarantee limited security: the key of any \(\ell\)-query protocol can be revealed by an \(O(\ell^2)\)-query adversary. This quadratic gap matches the existing key-agreement protocol proposed by Merkle (CACM 78), known as  Merkle's Puzzles. 
 </p>
 <p>	
-Besides the query complexity, the communication complexity of multi-party protocols in ROM is also an important question in practice. A recent work by Iftach et al. (ITCS 2019) observed that: in Merkle’s Puzzles, to obtain secrecy against an eavesdropper that makes roughly \(\ell^2\) queries, the honest parties need to exchange \(\Omega(\ell)\) bits. They suggested that high communication complexity seems unavoidable in the construction of provable secure key-agreement protocols. Concretely, they made the following conjecture: any \(\ell\)-query protocols with \(c\) number of communication bits are only secure to an \(O(c\cdot \ell)\)-query adversary. This suggests that Merkle’s Puzzle is also tight in terms of communication complexity. Builds upon some techniques for proving communication complexity lower bounds, Iftach et al. (ITCS 2019) confirmed this conjecture for some special protocols.
+Besides query complexity, the communication complexity of two-party protocols in ROM is also an important question in practice. A recent work by Haitner et al. (ITCS 2019) first observed that in Merkle's Puzzles, to obtain secrecy against an eavesdropper with \(O(\ell^2)\) queries, the honest parties need to exchange \(\Omega(\ell)\) bits. Therefore, they believed that high communication complexity seemed unavoidable. Concretely, they conjectured that any \(\ell\)-query protocols with \(c\) bits of communication could be attacked by an \(O(c\cdot \ell)\)-query adversary. This, if true, would suggest that Merkle's Puzzle is also optimal regarding communication complexity. Building upon some techniques from communication complexity, Haitner et al. (ITCS 2019) confirmed this conjecture for some particular protocols. 
 </p>
 <p>
-In this work, we affirm their conjecture for all non-adaptive protocols with perfect completeness. To prove our result, we introduce a novel idea called density increment arguments. This approach is inspired by a new interpretation of information complexity by Yang and Zhang (Manuscript 2023). We believe our method is of independent interest as it bypasses some barriers that incapacitate previous techniques for proving communication lower bounds (in ROM). It also has a good chance to prove communication lower bound for general protocols with imperfect completeness as well as proving communication complexity lower bounds for other types of protocols.
+This work affirms the above conjecture for all non-adaptive protocols with perfect completeness. Our proof uses a novel idea called density increment argument. This method could be of independent interest as it differs from previous communication lower bounds techniques in ROM  (and bypasses some technical barriers). 
 </p>
-
-
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
