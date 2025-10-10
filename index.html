@@ -1,307 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guangxu Yang | USC Computer Science</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2b579a;
-            --secondary: #6c757d;
-            --accent: #e9ecef;
-            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guangxu Yang | USC Computer Science</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --primary: #2b579a;
+  --secondary: #6c757d;
+  --accent: #e9ecef;
+  --transition: all 0.3s ease;
+}
 
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            color: #444;
-            min-height: 100vh;
-        }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #444;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            background: rgba(255, 255, 255, 0.98);
-            padding: 3rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,0.08);
+}
 
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid var(--accent);
-            position: relative;
-        }
-
-        header::after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 3px;
-            background: var(--primary);
-        }
-
-        h1, h2, h3, h4 {
-            color: var(--primary);
-            margin: 1.8rem 0 1rem;
-        }
-
-        h1 { font-size: 2.8rem; letter-spacing: -0.03em; font-weight: 650; }
-
-        .profile {
-            display: flex;
-            align-items: flex-start;
-            gap: 2.5rem;
-            margin: 3rem 0;
-            padding: 1.5rem;
-            background: rgba(233, 236, 239, 0.3);
-            border-radius: 1rem;
-        }
-
-        .profile img {
-            border-radius: 1rem;
-            width: 200px;
-            height: auto;
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
-        }
-
-        .contact {
-            background: var(--accent);
-            padding: 1.8rem;
-            border-radius: 0.8rem;
-            margin: 2.5rem 0;
-            border-left: 4px solid var(--primary);
-        }
-
-        .publications ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .pub-section {
-            margin-top: 2.5rem;
-        }
-
-        .pub-section h4 {
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.3rem;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
-            font-size: 1.25rem;
-        }
-
-        .publications li {
-            padding: 1.5rem;
-            margin: 1.2rem 0;
-            background: white;
-            border-radius: 0.8rem;
-            box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .publications li:hover {
-            transform: translateY(-0.3rem);
-            box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.08);
-        }
-
-        .pub-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .pub-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .authors {
-            color: var(--secondary);
-            margin: 0.6rem 0;
-            font-size: 0.95rem;
-        }
-
-        .venue { font-style: italic; color: #666; margin: 0.3rem 0; }
-
-        .links { margin-top: 0.6rem; display: flex; flex-wrap: wrap; gap: 1rem; }
-
-        .links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 0.4rem;
-            background: rgba(43, 87, 154, 0.08);
-            transition: var(--transition);
-        }
-
-        .links a:hover {
-            background: rgba(43, 87, 154, 0.2);
-            text-decoration: none;
-        }
-
-        .badge {
-            font-size: 0.85rem;
-            padding: 0.3rem 0.7rem;
-            background: rgba(43, 87, 154, 0.1);
-            color: var(--primary);
-            border-radius: 0.3rem;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .profile { flex-direction: column; align-items: center; text-align: center; }
-            .profile img { width: 180px; }
-        }
-    </style>
+header {
+  text-align: center;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+header::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: var(--primary);
+}
+h1,h2,h3,h4 {
+  color: var(--primary);
+  margin: 1.8rem 0 1rem;
+}
+h1 {
+  font-size: 2.8rem;
+  font-weight: 650;
+}
+.profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  margin: 3rem 0;
+  padding: 1.5rem;
+  background: rgba(233,236,239,0.3);
+  border-radius: 1rem;
+}
+.profile img {
+  border-radius: 1rem;
+  width: 200px;
+  box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
+}
+.contact {
+  background: var(--accent);
+  padding: 1.8rem;
+  border-radius: 0.8rem;
+  margin: 2.5rem 0;
+  border-left: 4px solid var(--primary);
+}
+.publications ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.pub-section {
+  margin-top: 2.5rem;
+  border: 1px solid #eee;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+.pub-header-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: rgba(43,87,154,0.05);
+  padding: 0.8rem 1rem;
+  transition: background 0.3s;
+}
+.pub-header-toggle:hover {
+  background: rgba(43,87,154,0.1);
+}
+.pub-header-toggle h4 {
+  font-size: 1.2rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.toggle-icon {
+  transition: transform 0.3s;
+}
+.pub-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding: 0 1rem;
+}
+.pub-section.active .pub-content {
+  max-height: 2000px; /* enough to show content */
+  padding-bottom: 1rem;
+}
+.pub-section.active .toggle-icon {
+  transform: rotate(90deg);
+}
+.publications li {
+  padding: 1rem;
+  margin: 1rem 0;
+  background: white;
+  border-radius: 0.6rem;
+  box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.05);
+  transition: var(--transition);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.publications li:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 0.6rem 1.2rem rgba(0,0,0,0.08);
+}
+.pub-title { font-weight: 600; color: var(--primary); }
+.authors { color: var(--secondary); font-size: 0.95rem; margin: 0.5rem 0; }
+.venue { font-style: italic; color: #666; }
+.links { margin-top: 0.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  background: rgba(43,87,154,0.08);
+  transition: var(--transition);
+}
+.links a:hover { background: rgba(43,87,154,0.2); text-decoration: none; }
+.badge {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.7rem;
+  background: rgba(43,87,154,0.1);
+  color: var(--primary);
+  border-radius: 0.3rem;
+  font-weight: 500;
+}
+@media(max-width:768px){
+  .profile{flex-direction:column;align-items:center;text-align:center;}
+  .profile img{width:180px;}
+}
+</style>
 </head>
 <body>
-
 <div class="container">
-    <header>
-        <h1>Guangxu Yang <span style="font-weight: 350; color: var(--secondary);">杨广绪</span></h1>
-    </header>
+<header>
+  <h1>Guangxu Yang <span style="font-weight:350;color:var(--secondary);">杨广绪</span></h1>
+</header>
 
-    <section class="profile">
-        <img src="GuangxuYang.jpg" alt="Guangxu Yang Portrait">
-        <div>
-            <p>I am a Ph.D. student advised by <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank">Prof. Jiapeng Zhang</a> at University of Southern California.</p>
-            <p>My research focuses on communication complexity. Recently, my work has centered on two main themes:</p>
-            <ul>
-                <li>Developing new techniques for proving lower bounds in the <strong>Number-on-Forehead (NOF)</strong> model.</li>
-                <li>Advancing the <strong>structure-vs-pseudorandomness</strong> approach, with focus on round–communication trade-offs.</li>
-            </ul>
-        </div>
-    </section>
+<section class="profile">
+  <img src="GuangxuYang.jpg" alt="Guangxu Yang Portrait">
+  <div>
+    <p>I am a Ph.D. student advised by <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank">Prof. Jiapeng Zhang</a> at University of Southern California.</p>
+    <p>My research focuses on communication complexity. Recently, my work has centered on two main themes:</p>
+    <ul>
+      <li>Developing new techniques for proving lower bounds in the <strong>Number-on-Forehead (NOF)</strong> model.</li>
+      <li>Advancing the <strong>structure-vs-pseudorandomness</strong> approach, with focus on round–communication trade-offs.</li>
+    </ul>
+  </div>
+</section>
 
-    <section class="contact">
-        <h3><i class="fas fa-envelope-open-text"></i> Contact Information</h3>
-        <p><a href="mailto:guangxuy@usc.edu">guangxuy@usc.edu</a></p>
-    </section>
+<section class="contact">
+  <h3><i class="fas fa-envelope-open-text"></i> Contact Information</h3>
+  <p><a href="mailto:guangxuy@usc.edu">guangxuy@usc.edu</a></p>
+</section>
 
-    <section class="publications">
-        <h3><i class="fas fa-book-open"></i> Publications and Manuscripts</h3>
-        <p class="venue-note">Authors listed alphabetically.</p>
+<section class="publications">
+  <h3><i class="fas fa-book-open"></i> Publications and Manuscripts</h3>
+  <p>Authors listed alphabetically.</p>
 
-        <!-- NOF Lifting Theorem -->
-        <div class="pub-section">
-            <h4><i class="fas fa-layer-group"></i> NOF Lifting Theorems</h4>
-            <ul>
-                <li>
-                    <div class="pub-header">
-                        <div class="pub-title">Quantum versus Classical Separation in Simultaneous Number-on-Forehead Communication</div>
-                        <span class="badge">Manuscript</span>
-                    </div>
-                    <div class="authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                    <div class="links">
-                        <a href="https://eccc.weizmann.ac.il/report/2025/081/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
-                        <a href="https://arxiv.org/abs/2506.16804" target="_blank"><i class="fas fa-archive"></i>arXiv</a>
-                    </div>
-                </li>
+  <!-- Section 1 -->
+  <div class="pub-section">
+    <div class="pub-header-toggle">
+      <h4><i class="fas fa-layer-group"></i> NOF Lifting Theorems</h4>
+      <i class="fas fa-chevron-right toggle-icon"></i>
+    </div>
+    <div class="pub-content">
+      <ul>
+        <li>
+          <div class="pub-header">
+            <div class="pub-title">Quantum versus Classical Separation in Simultaneous Number-on-Forehead Communication</div>
+            <span class="badge">Manuscript</span>
+          </div>
+          <div class="authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+          <div class="links">
+            <a href="https://eccc.weizmann.ac.il/report/2025/081/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
+            <a href="https://arxiv.org/abs/2506.16804" target="_blank"><i class="fas fa-archive"></i>arXiv</a>
+          </div>
+        </li>
 
-                <li>
-                    <div class="pub-header">
-                        <div class="pub-title">Deterministic Lifting Theorems for One-Way Number-on-Forehead Communication</div>
-                        <span class="badge">Manuscript</span>
-                    </div>
-                    <div class="authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                    <div class="links">
-                        <a href="https://eccc.weizmann.ac.il/report/2025/073/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
-                        <a href="https://arxiv.org/abs/2506.12420" target="_blank"><i class="fas fa-archive"></i>arXiv</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        <li>
+          <div class="pub-header">
+            <div class="pub-title">Deterministic Lifting Theorems for One-Way Number-on-Forehead Communication</div>
+            <span class="badge">Manuscript</span>
+          </div>
+          <div class="authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+          <div class="links">
+            <a href="https://eccc.weizmann.ac.il/report/2025/073/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
+            <a href="https://arxiv.org/abs/2506.12420" target="_blank"><i class="fas fa-archive"></i>arXiv</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-        <!-- Gadgetless Lifting & Communication Complexity -->
-        <div class="pub-section">
-            <h4><i class="fas fa-microchip"></i> Gadgetless Lifting & Communication Lower Bounds</h4>
-            <ul>
-                <li>
-                    <div class="pub-header">
-                        <div class="pub-title">A Min-Entropy Approach to Multi-Party Communication Lower Bounds</div>
-                        <span class="badge">CCC 2025</span>
-                    </div>
-                    <div class="authors">Mi-Ying Huang, Xinyu Mao, Shuo Wang, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                    <div class="venue">40th Computational Complexity Conference</div>
-                    <div class="links">
-                        <a href="https://eccc.weizmann.ac.il/report/2023/164/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
-                        <a href="https://eccc.weizmann.ac.il/report/2024/067/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
-                    </div>
-                </li>
+  <!-- Section 2 -->
+  <div class="pub-section">
+    <div class="pub-header-toggle">
+      <h4><i class="fas fa-microchip"></i> Gadgetless Lifting & Communication Lower Bounds</h4>
+      <i class="fas fa-chevron-right toggle-icon"></i>
+    </div>
+    <div class="pub-content">
+      <ul>
+        <li>
+          <div class="pub-header">
+            <div class="pub-title">A Min-Entropy Approach to Multi-Party Communication Lower Bounds</div>
+            <span class="badge">CCC 2025</span>
+          </div>
+          <div class="authors">Mi-Ying Huang, Xinyu Mao, Shuo Wang, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
+          <div class="venue">40th Computational Complexity Conference</div>
+          <div class="links">
+            <a href="https://eccc.weizmann.ac.il/report/2023/164/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
+            <a href="https://eccc.weizmann.ac.il/report/2024/067/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
+          </div>
+        </li>
 
-                <li>
-                    <div class="pub-header">
-                        <div class="pub-title">Gadgetless Lifting Beats Round Elimination: Improved Lower Bounds for Pointer Chasing</div>
-                        <span class="badge">ITCS 2025</span>
-                    </div>
-                    <div class="authors">Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                    <div class="venue">16th Innovations in Theoretical Computer Science</div>
-                    <div class="links">
-                        <a href="https://eccc.weizmann.ac.il/report/2024/070/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
-                        <a href="https://arxiv.org/abs/2411.10996" target="_blank"><i class="fas fa-archive"></i>arXiv</a>
-                    </div>
-                </li>
+        <li>
+          <div class="pub-header">
+            <div class="pub-title">Gadgetless Lifting Beats Round Elimination: Improved Lower Bounds for Pointer Chasing</div>
+            <span class="badge">ITCS 2025</span>
+          </div>
+          <div class="authors">Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
+          <div class="venue">16th Innovations in Theoretical Computer Science</div>
+          <div class="links">
+            <a href="https://eccc.weizmann.ac.il/report/2024/070/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
+            <a href="https://arxiv.org/abs/2411.10996" target="_blank"><i class="fas fa-archive"></i>arXiv</a>
+          </div>
+        </li>
 
-                <li>
-                    <div class="pub-header">
-                        <div class="pub-title">Communication Lower Bounds for Collision Problems via Density Increment Arguments</div>
-                        <span class="badge">STOC 2024</span>
-                    </div>
-                    <div class="authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                    <div class="venue">56th Annual ACM Symposium on Theory of Computing</div>
-                    <div class="links">
-                        <a href="https://eccc.weizmann.ac.il/report/2023/159/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
-                    </div>
-                </li>
+        <li>
+          <div class="pub-header">
+            <div class="pub-title">Communication Lower Bounds for Collision Problems via Density Increment Arguments</div>
+            <span class="badge">STOC 2024</span>
+          </div>
+          <div class="authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+          <div class="venue">56th Annual ACM Symposium on Theory of Computing</div>
+          <div class="links">
+            <a href="https://eccc.weizmann.ac.il/report/2023/159/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
+          </div>
+        </li>
 
-                <li>
-                    <div class="pub-header">
-                        <div class="pub-title">Communication Lower Bounds of Key-Agreement Protocols via Density Increment Arguments</div>
-                        <span class="badge">TCC 2023</span>
-                    </div>
-                    <div class="authors">Mi-Ying Huang, Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                    <div class="venue">21st Theory of Cryptography Conference</div>
-                    <div class="links">
-                        <a href="https://eccc.weizmann.ac.il/report/2023/137/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
-                        <a href="https://eprint.iacr.org/2023/1349" target="_blank"><i class="fas fa-archive"></i>ePrint</a>
-                    </div>
-                </li>
+        <li>
+          <div class="pub-header">
+            <div class="pub-title">Communication Lower Bounds of Key-Agreement Protocols via Density Increment Arguments</div>
+            <span class="badge">TCC 2023</span>
+          </div>
+          <div class="authors">Mi-Ying Huang, Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
+          <div class="venue">21st Theory of Cryptography Conference</div>
+          <div class="links">
+            <a href="https://eccc.weizmann.ac.il/report/2023/137/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
+            <a href="https://eprint.iacr.org/2023/1349" target="_blank"><i class="fas fa-archive"></i>ePrint</a>
+          </div>
+        </li>
 
-                <li>
-                    <div class="pub-header">
-                        <div class="pub-title">Simulation Methods in Communication Lower Bounds, Revisited</div>
-                        <span class="badge">Manuscript</span>
-                    </div>
-                    <div class="authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                    <div class="links">
-                        <a href="https://eccc.weizmann.ac.il/report/2022/019/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
-                        <a href="https://arxiv.org/abs/2309.13517" target="_blank"><i class="fas fa-archive"></i>arXiv</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
+        <li>
+          <div class="pub-header">
+            <div class="pub-title">Simulation Methods in Communication Lower Bounds, Revisited</div>
+            <span class="badge">Manuscript</span>
+          </div>
+          <div class="authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+          <div class="links">
+            <a href="https://eccc.weizmann.ac.il/report/2022/019/" target="_blank"><i class="fas fa-file-alt"></i>ECCC</a>
+            <a href="https://arxiv.org/abs/2309.13517" target="_blank"><i class="fas fa-archive"></i>arXiv</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 </div>
 
+<script>
+document.querySelectorAll('.pub-header-toggle').forEach(header=>{
+  header.addEventListener('click', ()=>{
+    const section = header.parentElement;
+    section.classList.toggle('active');
+  });
+});
+</script>
 </body>
 </html>
