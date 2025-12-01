@@ -328,4 +328,170 @@
         box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
-    /* 移动端适配
+    /* 移动端适配 */
+    @media (max-width: 899px) {
+        .layout-wrapper { padding: 20px; }
+        .profile-card { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin-bottom: 40px;
+        }
+        .avatar-container img { width: 140px; height: 140px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="layout-wrapper">
+    
+    <aside class="profile-sidebar">
+        <div class="profile-card">
+            <div class="avatar-container">
+                <img src="GuangxuYang.jpg" alt="Guangxu Yang">
+            </div>
+            
+            <h1>Guangxu Yang <span class="chinese-name">杨广绪</span></h1>
+            
+            <div class="bio">
+                <p>Ph.D. student at USC.</p>
+                <p>Advised by <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank">Prof. Jiapeng Zhang</a>.</p>
+                <p style="margin-top:10px;"><b>Research Interests:</b><br>Communication Complexity<br>Circuit Complexity</p>
+            </div>
+
+            <div class="contact-info">
+                <a href="mailto:guangxuy@usc.edu" class="contact-item">
+                    <i class="fas fa-envelope"></i> guangxuy@usc.edu
+                </a>
+                <span class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i> Los Angeles, CA
+                </span>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/guangxu-yang" target="_blank" class="social-btn" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=W_XuMDkAAAAJ" target="_blank" class="social-btn" title="Google Scholar">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                </div>
+        </div>
+    </aside>
+
+    <main class="content-area">
+        <h2 class="section-title"><i class="fas fa-book-open" style="font-size: 0.8em; color:var(--accent-color);"></i> Publications</h2>
+        <p style="font-size: 0.9em; color: #888; margin-bottom: 20px;">* Authors listed alphabetically.</p>
+
+        <div class="paper-list">
+            
+            <article class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">Quantum versus Classical Separation in Simultaneous Number-on-Forehead Communication</div>
+                    <span class="badge">Manuscript</span>
+                </div>
+                <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+                <div class="paper-links">
+                    <a href="https://eccc.weizmann.ac.il/report/2025/081/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
+                    <a href="https://arxiv.org/abs/2506.16804" target="_blank" class="link-btn"><i class="fas fa-archive"></i> arXiv</a>
+                    <a href="Quantum.pdf" target="_blank" class="link-btn"><i class="fas fa-presentation"></i> Slides</a>
+                </div>
+            </article>
+
+            <article class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">Deterministic Lifting Theorems for One-Way Number-on-Forehead Communication</div>
+                    <span class="badge">Manuscript</span>
+                </div>
+                <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+                <div class="paper-links">
+                    <a href="https://eccc.weizmann.ac.il/report/2025/073/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
+                    <a href="https://arxiv.org/abs/2506.12420" target="_blank" class="link-btn"><i class="fas fa-archive"></i> arXiv</a>
+                    <a href="NOFlifting.pdf" target="_blank" class="link-btn"><i class="fas fa-presentation"></i> Slides</a>
+                </div>
+            </article>
+
+            <article class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">A Lifting Theorem for Hybrid Classical-Quantum Communication Complexity</div>
+                    <span class="badge">Manuscript</span>
+                </div>
+                <div class="paper-authors">Xudong Wu, <b>Guangxu Yang</b>, Penghui Yao</div>
+                <div class="paper-links">
+                    <a href="https://arxiv.org/abs/2511.17227" target="_blank" class="link-btn"><i class="fas fa-archive"></i> arXiv</a>
+                </div>
+            </article>
+
+            <article class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">A Min-Entropy Approach to Multi-Party Communication Lower Bounds</div>
+                    <span class="badge ccc">CCC 2025</span>
+                </div>
+                <div class="paper-authors">Mi-Ying Huang, Xinyu Mao, Shuo Wang, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
+                <div class="paper-venue">40th Computational Complexity Conference</div>
+                <div class="paper-links">
+                    <a href="https://eccc.weizmann.ac.il/report/2023/164/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC (Part I)</a>
+                    <a href="https://eccc.weizmann.ac.il/report/2024/067/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC (Part II)</a>
+                </div>
+            </article>
+
+            <article class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">Gadgetless Lifting Beats Round Elimination: Improved Lower Bounds for Pointer Chasing</div>
+                    <span class="badge itcs">ITCS 2025</span>
+                </div>
+                <div class="paper-authors">Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
+                <div class="paper-venue">16th Innovations in Theoretical Computer Science</div>
+                <div class="paper-links">
+                    <a href="https://eccc.weizmann.ac.il/report/2024/070/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
+                    <a href="https://arxiv.org/abs/2411.10996" target="_blank" class="link-btn"><i class="fas fa-archive"></i> arXiv</a>
+                    <a href="Pointer Chasing.pdf" target="_blank" class="link-btn"><i class="fas fa-presentation"></i> Slides</a>
+                </div>
+            </article>
+
+            <article class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">Communication Lower Bounds for Collision Problems via Density Increment Arguments</div>
+                    <span class="badge stoc">STOC 2024</span>
+                </div>
+                <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+                <div class="paper-venue">56th Annual ACM Symposium on Theory of Computing</div>
+                <div class="paper-links">
+                    <a href="https://eccc.weizmann.ac.il/report/2023/159/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
+                    <a href="CC of Collision.pdf" target="_blank" class="link-btn"><i class="fas fa-presentation"></i> Slides</a>
+                </div>
+            </article>
+
+            <article class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">Communication Lower Bounds of Key-Agreement Protocols via Density Increment Arguments</div>
+                    <span class="badge tcc">TCC 2023</span>
+                </div>
+                <div class="paper-authors">Mi-Ying Huang, Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
+                <div class="paper-venue">21st Theory of Cryptography Conference</div>
+                <div class="paper-links">
+                    <a href="https://eccc.weizmann.ac.il/report/2023/137/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
+                    <a href="https://eprint.iacr.org/2023/1349" target="_blank" class="link-btn"><i class="fas fa-archive"></i> ePrint</a>
+                    <a href="CC of Key Agreement.pdf" target="_blank" class="link-btn"><i class="fas fa-presentation"></i> Slides</a>
+                </div>
+            </article>
+
+            <article class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">Simulation Methods in Communication Lower Bounds, Revisited</div>
+                    <span class="badge">Manuscript</span>
+                </div>
+                <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+                <div class="paper-venue">Previous version in ECCC 2022</div>
+                <div class="paper-links">
+                    <a href="https://eccc.weizmann.ac.il/report/2022/019/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
+                    <a href="https://arxiv.org/abs/2309.13517" target="_blank" class="link-btn"><i class="fas fa-archive"></i> arXiv</a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
