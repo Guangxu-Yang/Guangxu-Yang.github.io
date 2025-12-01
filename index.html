@@ -11,22 +11,29 @@
 
 <style>
     :root {
-        /* 配色方案：深空灰 + 活力蓝 + 柔和背景 */
+        /* --- USC 官方配色 --- */
+        --usc-cardinal: #990000;
+        --usc-gold: #FFC72C;
+        
+        /* 页面基础色 */
         --bg-color: #f8f9fa;
         --sidebar-bg: #ffffff;
         --text-primary: #2d3748;
         --text-secondary: #718096;
-        --accent-color: #3182ce; /* 类似 USC 风格但更现代的蓝色 */
-        --accent-hover: #2c5282;
         --card-bg: #ffffff;
         --border-color: #e2e8f0;
+
+        /* 应用配色 */
+        --accent-color: var(--usc-cardinal);
+        --accent-hover: #7a0000; /* 深一点的 Cardinal 用于 hover */
+        --highlight: var(--usc-gold); 
         
-        /* 标签颜色 */
-        --tag-stoc: #e53e3e; /* 红 */
-        --tag-ccc: #d69e2e;  /* 黄 */
-        --tag-itcs: #805ad5; /* 紫 */
-        --tag-tcc: #38a169;  /* 绿 */
-        --tag-manuscript: #718096; /* 灰 */
+        /* 会议标签颜色 (保持区分度，但 STOC 改为深红以协调) */
+        --tag-stoc: #c53030; 
+        --tag-ccc: #d69e2e;  
+        --tag-itcs: #805ad5; 
+        --tag-tcc: #38a169;  
+        --tag-manuscript: #718096; 
     }
 
     * {
@@ -41,6 +48,7 @@
         line-height: 1.6;
         display: flex;
         flex-direction: column;
+        border-top: 5px solid var(--usc-cardinal); /* 顶部增加 USC 红条 */
     }
 
     /* --- 布局结构 --- */
@@ -59,7 +67,6 @@
             gap: 60px;
         }
         
-        /* 左侧固定侧边栏 */
         aside.profile-sidebar {
             width: 320px;
             flex-shrink: 0;
@@ -69,7 +76,6 @@
             text-align: left;
         }
 
-        /* 右侧内容区 */
         main.content-area {
             flex-grow: 1;
         }
@@ -79,14 +85,11 @@
     .profile-card {
         background: var(--sidebar-bg);
         padding: 0;
-        border-radius: 0; /* 移动端不需要圆角 */
         text-align: center;
     }
 
     @media (min-width: 900px) {
-        .profile-card {
-            text-align: left;
-        }
+        .profile-card { text-align: left; }
     }
 
     .avatar-container {
@@ -99,14 +102,15 @@
         width: 160px;
         height: 160px;
         object-fit: cover;
-        border-radius: 50%; /* 圆形头像更现代 */
+        border-radius: 50%;
         border: 4px solid white;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
+        box-shadow: 0 10px 25px rgba(153, 0, 0, 0.15); /* 红色阴影 */
+        transition: transform 0.3s ease, border-color 0.3s;
     }
 
     .avatar-container img:hover {
-        transform: scale(1.05) rotate(2deg);
+        transform: scale(1.05);
+        border-color: var(--usc-gold); /* 悬停变金边 */
     }
 
     h1 {
@@ -132,8 +136,15 @@
     .bio a {
         color: var(--accent-color);
         text-decoration: none;
-        font-weight: 500;
-        border-bottom: 1px dashed var(--accent-color);
+        font-weight: 600;
+        border-bottom: 2px solid rgba(153, 0, 0, 0.1);
+        transition: all 0.2s;
+    }
+
+    .bio a:hover {
+        background-color: rgba(255, 199, 44, 0.2); /* 金色高亮背景 */
+        border-bottom-color: var(--accent-color);
+        color: var(--accent-hover);
     }
 
     .contact-info {
@@ -150,6 +161,7 @@
         color: var(--text-secondary);
         font-size: 0.9rem;
         transition: color 0.2s;
+        text-decoration: none;
     }
 
     .contact-item:hover {
@@ -159,6 +171,8 @@
     .contact-item i {
         width: 20px;
         text-align: center;
+        color: var(--usc-gold); /* 图标使用金色 */
+        text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
     }
 
     .social-links {
@@ -182,16 +196,17 @@
         align-items: center;
         justify-content: center;
         text-decoration: none;
-        transition: all 0.2s;
+        transition: all 0.3s;
     }
 
     .social-btn:hover {
-        background: var(--accent-color);
-        color: white;
+        background: var(--usc-cardinal);
+        color: var(--usc-gold); /* 悬停：红底金字 */
         transform: translateY(-3px);
+        box-shadow: 0 4px 10px rgba(153, 0, 0, 0.3);
     }
 
-    /* --- 右侧内容区样式 --- */
+    /* --- 右侧内容区 --- */
     .section-title {
         font-family: 'Merriweather', serif;
         font-size: 1.5rem;
@@ -202,6 +217,11 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        color: var(--text-primary);
+    }
+    
+    .section-title i {
+        color: var(--usc-cardinal);
     }
 
     .paper-list {
@@ -210,40 +230,38 @@
         gap: 20px;
     }
 
-    /* 论文卡片设计 */
     .paper-card {
         background: var(--card-bg);
         border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 20px;
+        border-radius: 8px;
+        padding: 22px;
         position: relative;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         display: flex;
         flex-direction: column;
+        overflow: hidden; /* 为了左侧条 */
     }
 
     .paper-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 24px rgba(0,0,0,0.06);
-        border-color: transparent;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        border-color: rgba(153, 0, 0, 0.2);
     }
 
-    /* 左侧彩色条，区分不同类型的论文，可选 */
+    /* 左侧装饰条 */
     .paper-card::before {
         content: '';
         position: absolute;
         left: 0;
-        top: 15px;
-        bottom: 15px;
+        top: 0;
+        bottom: 0;
         width: 4px;
-        border-radius: 0 4px 4px 0;
-        background: var(--border-color); /* 默认 */
-        opacity: 0.5;
+        background: var(--border-color);
+        transition: background 0.3s;
     }
 
     .paper-card:hover::before {
-        background: var(--accent-color);
-        opacity: 1;
+        background: var(--usc-cardinal); /* 悬停变红 */
     }
 
     .paper-header {
@@ -261,12 +279,11 @@
         line-height: 1.4;
     }
 
-    /* 标签样式 */
     .badge {
         font-size: 0.75rem;
         font-weight: 700;
         padding: 4px 8px;
-        border-radius: 6px;
+        border-radius: 4px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         white-space: nowrap;
@@ -274,7 +291,6 @@
         background-color: var(--tag-manuscript);
     }
 
-    /* 为不同会议自动配色 */
     .badge.stoc { background-color: var(--tag-stoc); }
     .badge.ccc { background-color: var(--tag-ccc); }
     .badge.itcs { background-color: var(--tag-itcs); }
@@ -287,15 +303,16 @@
     }
 
     .paper-authors b {
-        color: var(--text-primary);
+        color: #000;
         font-weight: 600;
+        /* border-bottom: 2px solid var(--usc-gold);  可选：给名字加个金色下划线 */ 
     }
 
     .paper-venue {
         font-style: italic;
         font-family: 'Merriweather', serif;
         font-size: 0.9rem;
-        color: #666;
+        color: #555;
         margin-bottom: 15px;
     }
 
@@ -303,7 +320,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        margin-top: auto; /* Push links to bottom if height varies */
+        margin-top: auto;
     }
 
     .link-btn {
@@ -311,24 +328,24 @@
         align-items: center;
         gap: 6px;
         font-size: 0.85rem;
-        font-weight: 500;
+        font-weight: 600;
         color: var(--text-secondary);
         text-decoration: none;
-        padding: 4px 10px;
+        padding: 5px 12px;
         background-color: #f7fafc;
-        border-radius: 6px;
-        border: 1px solid transparent;
+        border-radius: 4px;
         transition: all 0.2s;
     }
 
     .link-btn:hover {
-        background-color: white;
-        border-color: var(--accent-color);
-        color: var(--accent-color);
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        background-color: var(--usc-cardinal);
+        color: white; /* 悬停红底白字 */
+    }
+    
+    .link-btn:hover i {
+        color: var(--usc-gold); /* 图标变金 */
     }
 
-    /* 移动端适配 */
     @media (max-width: 899px) {
         .layout-wrapper { padding: 20px; }
         .profile-card { 
@@ -336,6 +353,8 @@
             flex-direction: column; 
             align-items: center; 
             margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
         }
         .avatar-container img { width: 140px; height: 140px; }
     }
@@ -375,12 +394,12 @@
                 <a href="https://scholar.google.com/citations?user=W_XuMDkAAAAJ" target="_blank" class="social-btn" title="Google Scholar">
                     <i class="fas fa-graduation-cap"></i>
                 </a>
-                </div>
+            </div>
         </div>
     </aside>
 
     <main class="content-area">
-        <h2 class="section-title"><i class="fas fa-book-open" style="font-size: 0.8em; color:var(--accent-color);"></i> Publications</h2>
+        <h2 class="section-title"><i class="fas fa-book-open"></i> Publications</h2>
         <p style="font-size: 0.9em; color: #888; margin-bottom: 20px;">* Authors listed alphabetically.</p>
 
         <div class="paper-list">
@@ -482,6 +501,7 @@
                     <span class="badge">Manuscript</span>
                 </div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+                <div class="paper-venue">Previous version in ECCC 2022</div>
                 <div class="paper-links">
                     <a href="https://eccc.weizmann.ac.il/report/2022/019/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
                     <a href="https://arxiv.org/abs/2309.13517" target="_blank" class="link-btn"><i class="fas fa-archive"></i> arXiv</a>
