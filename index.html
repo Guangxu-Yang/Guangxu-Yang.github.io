@@ -44,21 +44,21 @@
         main.content-area { flex-grow: 1; }
     }
 
-    /* --- 姓名区域优化 --- */
+    /* --- 姓名区域 --- */
     h1 { 
         font-family: 'Merriweather', serif; 
         font-size: 2.2rem; margin: 0; 
         letter-spacing: -0.5px;
         line-height: 1.2;
         display: flex;
-        flex-wrap: wrap; /* 允许在屏幕极窄时换行 */
+        flex-wrap: wrap;
         align-items: baseline;
     }
 
     .chinese-name { 
         font-size: 1.3rem; color: var(--text-secondary); 
         font-weight: 400; margin-left: 12px; opacity: 0.8;
-        white-space: nowrap; /* 确保“杨广绪”三个字永远在一起，不被打断 */
+        white-space: nowrap;
         display: inline-block;
     }
 
@@ -75,23 +75,21 @@
     .bio { font-size: 0.95rem; color: var(--text-secondary); margin-top: 20px; }
     .bio a { color: var(--text-primary); text-decoration: none; font-weight: 600; box-shadow: inset 0 -2px 0 var(--usc-gold); transition: all 0.2s; }
 
-    /* --- 研究兴趣优化 --- */
+    /* --- 研究兴趣 --- */
     .research-interests {
         margin-top: 25px; padding-top: 20px;
         border-top: 1px solid var(--border-color);
         font-size: 0.95rem; line-height: 1.65;
-        word-wrap: break-word; /* 防止长单词溢出 */
     }
-    .interest-keyword { color: var(--text-primary); font-weight: 600; white-space: nowrap; } /* 关键词不换行 */
+    .interest-keyword { color: var(--text-primary); font-weight: 600; white-space: nowrap; }
     .interest-icon { color: var(--usc-gold); margin-right: 6px; }
 
-    /* --- 联系方式 & 社交 --- */
+    /* --- 联系方式 --- */
     .contact-info { margin-top: 25px; }
     .contact-item { 
         display: flex; align-items: center; gap: 12px; 
         color: var(--text-secondary); font-size: 0.9rem; 
         margin-bottom: 12px; text-decoration: none;
-        word-break: break-all; /* 防止长邮箱地址溢出 */
     }
     .contact-item i { color: var(--usc-cardinal); width: 16px; text-align: center; flex-shrink: 0; }
 
@@ -99,7 +97,7 @@
     .social-btn { width: 38px; height: 38px; border-radius: 50%; background: #f1f5f9; color: var(--text-primary); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; }
     .social-btn:hover { background: var(--usc-cardinal); color: white; transform: translateY(-3px); }
 
-    /* --- 论文区优化 --- */
+    /* --- 论文区 --- */
     .section-title { font-family: 'Merriweather', serif; font-size: 1.75rem; padding-bottom: 15px; margin-bottom: 40px; border-bottom: 2px solid var(--border-color); position: relative; }
     .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 60px; height: 2px; background: var(--usc-cardinal); }
 
@@ -107,15 +105,16 @@
     .paper-card:hover { border-color: transparent; box-shadow: 0 12px 30px rgba(0,0,0,0.04); transform: translateY(-2px); }
 
     .paper-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; margin-bottom: 10px; }
-    @media (max-width: 600px) { .paper-header { flex-direction: column-reverse; } } /* 手机端标签在标题上方 */
+    @media (max-width: 600px) { .paper-header { flex-direction: column-reverse; } }
 
     .paper-title { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4; flex-grow: 1; }
     
     .badge { 
-        font-family: 'Inter', sans-serif; font-size: 0.7rem; 
-        padding: 4px 12px; border-radius: 20px; color: white; 
-        background: var(--tag-manuscript); font-weight: 700; 
-        text-transform: uppercase; white-space: nowrap; /* 标签内容不换行 */
+        font-family: 'Inter', sans-serif; font-size: 0.75rem; 
+        padding: 3px 12px; border-radius: 6px; color: white; 
+        background: var(--tag-manuscript); font-weight: 500; 
+        text-transform: none; /* 取消全大写 */
+        white-space: nowrap;
     }
     .badge.stoc { background: var(--tag-stoc); }
     .badge.ccc { background: var(--tag-ccc); }
@@ -124,7 +123,17 @@
 
     .paper-authors { font-size: 0.95rem; margin-bottom: 10px; color: var(--text-secondary); }
     .paper-authors b { color: var(--text-primary); font-weight: 600; }
-    .paper-venue { color: var(--usc-cardinal); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; }
+
+    /* 会议全称样式优化：取消全大写 */
+    .paper-venue { 
+        color: #8a0000; /* 稍微柔和的红色 */
+        font-weight: 500; 
+        font-size: 0.9rem; 
+        margin-bottom: 15px;
+        font-style: italic;
+        text-transform: none; /* 取消全大写 */
+        letter-spacing: normal; /* 取消字间距放大 */
+    }
 
     .paper-links { display: flex; flex-wrap: wrap; gap: 10px; }
     .link-btn { background-color: #f8fafc; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 5px 14px; border-radius: 6px; font-size: 0.8rem; text-decoration: none; font-weight: 600; transition: all 0.2s; white-space: nowrap; }
@@ -147,10 +156,7 @@
                 <img src="GuangxuYang.jpg" alt="Guangxu Yang">
             </div>
             
-            <h1>
-                Guangxu Yang 
-                <span class="chinese-name">杨广绪</span>
-            </h1>
+            <h1>Guangxu Yang <span class="chinese-name">杨广绪</span></h1>
             
             <div class="bio">
                 <p>Ph.D. student advised by <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank">Prof. Jiapeng Zhang</a> at University of Southern California.</p>
@@ -159,8 +165,8 @@
             <div class="research-interests">
                 <p>
                     <i class="fa-solid fa-seedling interest-icon"></i> 
-                    <b>Research Interests:</b> My earlier work focused on <span class="interest-keyword">lifting theorems</span> and <span class="interest-keyword">number-on-the-forehead</span> communication complexity. 
-                    Recently, I have been turning to <span class="interest-keyword">Fourier analysis</span>, <span class="interest-keyword">quantum advantage</span>, and <span class="interest-keyword">lattice problems</span>.
+                    <b>Research Interests:</b> My earlier work focused on <span class="interest-keyword">lifting theorems</span> and <span class="interest-keyword">numbers-on-forehead</span> communication complexity. 
+                    Recently, I have been turning to <span class="interest-keyword">quantum advantage</span> and <span class="interest-keyword">lattice problems</span>.
                 </p>
             </div>
 
@@ -232,7 +238,7 @@
             <article class="paper-card">
                 <div class="paper-header">
                     <div class="paper-title">A Min-Entropy Approach to Multi-Party Communication Lower Bounds</div>
-                    <span class="badge ccc">CCC 2025</span>
+                    <span class="badge ccc">Ccc 2025</span>
                 </div>
                 <div class="paper-authors">Mi-Ying Huang, Xinyu Mao, Shuo Wang, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-venue">40th Computational Complexity Conference</div>
@@ -245,7 +251,7 @@
             <article class="paper-card">
                 <div class="paper-header">
                     <div class="paper-title">Gadgetless Lifting Beats Round Elimination: Improved Lower Bounds for Pointer Chasing</div>
-                    <span class="badge itcs">ITCS 2025</span>
+                    <span class="badge itcs">Itcs 2025</span>
                 </div>
                 <div class="paper-authors">Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-venue">16th Innovations in Theoretical Computer Science</div>
@@ -259,7 +265,7 @@
             <article class="paper-card">
                 <div class="paper-header">
                     <div class="paper-title">Communication Lower Bounds for Collision Problems via Density Increment Arguments</div>
-                    <span class="badge stoc">STOC 2024</span>
+                    <span class="badge stoc">Stoc 2024</span>
                 </div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-venue">56th Annual ACM Symposium on Theory of Computing</div>
@@ -272,7 +278,7 @@
             <article class="paper-card">
                 <div class="paper-header">
                     <div class="paper-title">Communication Lower Bounds of Key-Agreement Protocols via Density Increment Arguments</div>
-                    <span class="badge tcc">TCC 2023</span>
+                    <span class="badge tcc">Tcc 2023</span>
                 </div>
                 <div class="paper-authors">Mi-Ying Huang, Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-venue">21st Theory of Cryptography Conference</div>
