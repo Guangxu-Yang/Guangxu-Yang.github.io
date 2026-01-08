@@ -6,54 +6,48 @@
 <title>Guangxu Yang | USC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
     :root {
-        /* --- USC 官方配色 --- */
+        /* --- USC 品牌色 --- */
         --usc-cardinal: #990000;
         --usc-gold: #FFC72C;
         
-        /* 页面基础色 */
-        --bg-color: #f8f9fa;
+        /* 页面基础色调 */
+        --bg-color: #fcfcfc;
         --sidebar-bg: #ffffff;
-        --text-primary: #2d3748;
-        --text-secondary: #718096;
+        --text-primary: #1a202c;
+        --text-secondary: #4a5568;
         --card-bg: #ffffff;
-        --border-color: #e2e8f0;
+        --border-color: #edf2f7;
 
-        /* 应用配色 */
         --accent-color: var(--usc-cardinal);
-        --accent-hover: #7a0000; /* 深一点的 Cardinal 用于 hover */
-        --highlight: var(--usc-gold); 
         
-        /* 会议标签颜色 (保持区分度，但 STOC 改为深红以协调) */
-        --tag-stoc: #c53030; 
-        --tag-ccc: #d69e2e;  
-        --tag-itcs: #805ad5; 
-        --tag-tcc: #38a169;  
-        --tag-manuscript: #718096; 
+        /* 论文标签颜色 */
+        --tag-stoc: #9b2c2c; 
+        --tag-ccc: #b7791f;  
+        --tag-itcs: #6b46c1; 
+        --tag-tcc: #2f855a;  
+        --tag-manuscript: #4a5568; 
     }
 
-    * {
-        box-sizing: border-box;
-    }
+    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
     body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Inter', -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-primary);
         margin: 0;
-        line-height: 1.6;
+        line-height: 1.7;
         display: flex;
         flex-direction: column;
-        border-top: 5px solid var(--usc-cardinal); /* 顶部增加 USC 红条 */
+        border-top: 6px solid var(--usc-cardinal);
     }
 
-    /* --- 布局结构 --- */
     .layout-wrapper {
-        max-width: 1200px;
+        max-width: 1140px;
         margin: 0 auto;
         width: 100%;
         display: flex;
@@ -61,309 +55,87 @@
     }
 
     @media (min-width: 900px) {
-        .layout-wrapper {
-            flex-direction: row;
-            padding: 40px;
-            gap: 60px;
-        }
-        
-        aside.profile-sidebar {
-            width: 320px;
-            flex-shrink: 0;
-            position: sticky;
-            top: 40px;
-            height: fit-content;
-            text-align: left;
-        }
-
-        main.content-area {
-            flex-grow: 1;
-        }
+        .layout-wrapper { flex-direction: row; padding: 60px 40px; gap: 80px; }
+        aside.profile-sidebar { width: 300px; flex-shrink: 0; position: sticky; top: 60px; height: fit-content; }
+        main.content-area { flex-grow: 1; }
     }
 
     /* --- 侧边栏样式 --- */
-    .profile-card {
-        background: var(--sidebar-bg);
-        padding: 0;
-        text-align: center;
-    }
-
-    @media (min-width: 900px) {
-        .profile-card { text-align: left; }
-    }
-
-    .avatar-container {
-        margin-bottom: 20px;
-        position: relative;
-        display: inline-block;
-    }
+    .avatar-container { margin-bottom: 25px; text-align: center; }
+    @media (min-width: 900px) { .avatar-container { text-align: left; } }
 
     .avatar-container img {
-        width: 160px;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 50%;
+        width: 180px; height: 180px;
+        object-fit: cover; border-radius: 50%;
         border: 4px solid white;
-        box-shadow: 0 10px 25px rgba(153, 0, 0, 0.15); /* 红色阴影 */
-        transition: transform 0.3s ease, border-color 0.3s;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        transition: all 0.4s ease;
     }
+    .avatar-container img:hover { transform: scale(1.02); border-color: var(--usc-gold); }
 
-    .avatar-container img:hover {
-        transform: scale(1.05);
-        border-color: var(--usc-gold); /* 悬停变金边 */
-    }
+    h1 { font-family: 'Merriweather', serif; font-size: 2.2rem; margin: 0; letter-spacing: -0.5px; }
+    .chinese-name { font-size: 1.3rem; color: var(--text-secondary); font-weight: 400; margin-left: 10px; opacity: 0.8; }
 
-    h1 {
-        font-family: 'Merriweather', serif;
-        font-size: 2rem;
-        margin: 10px 0 5px 0;
-        color: var(--text-primary);
-    }
+    .bio { font-size: 0.95rem; color: var(--text-secondary); margin-top: 20px; }
+    .bio a { color: var(--text-primary); text-decoration: none; font-weight: 600; box-shadow: inset 0 -2px 0 var(--usc-gold); transition: all 0.2s; }
+    .bio a:hover { box-shadow: inset 0 -12px 0 rgba(255, 199, 44, 0.3); color: var(--usc-cardinal); }
 
-    .chinese-name {
-        font-size: 1.2rem;
-        color: var(--text-secondary);
-        font-weight: 400;
-        margin-left: 8px;
-    }
-
-    .bio {
-        font-size: 0.95rem;
-        color: var(--text-secondary);
-        margin-top: 15px;
-    }
-
-    .bio a {
-        color: var(--accent-color);
-        text-decoration: none;
-        font-weight: 600;
-        border-bottom: 2px solid rgba(153, 0, 0, 0.1);
-        transition: all 0.2s;
-    }
-
-    .bio a:hover {
-        background-color: rgba(255, 199, 44, 0.2); /* 金色高亮背景 */
-        border-bottom-color: var(--accent-color);
-        color: var(--accent-hover);
-    }
-
-    .contact-info {
+    /* Research Interests 方案三样式 */
+    .research-interests {
         margin-top: 25px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        transition: color 0.2s;
-        text-decoration: none;
-    }
-
-    .contact-item:hover {
-        color: var(--accent-color);
-    }
-
-    .contact-item i {
-        width: 20px;
-        text-align: center;
-        color: var(--usc-gold); /* 图标使用金色 */
-        text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
-    }
-
-    .social-links {
-        margin-top: 20px;
-        display: flex;
-        gap: 15px;
-        justify-content: center;
-    }
-    
-    @media (min-width: 900px) {
-        .social-links { justify-content: flex-start; }
-    }
-
-    .social-btn {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: #edf2f7;
-        color: var(--text-primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        transition: all 0.3s;
-    }
-
-    .social-btn:hover {
-        background: var(--usc-cardinal);
-        color: var(--usc-gold); /* 悬停：红底金字 */
-        transform: translateY(-3px);
-        box-shadow: 0 4px 10px rgba(153, 0, 0, 0.3);
-    }
-
-    /* --- 右侧内容区 --- */
-    .section-title {
-        font-family: 'Merriweather', serif;
-        font-size: 1.5rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 10px;
-        margin-bottom: 30px;
-        margin-top: 0;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--text-primary);
-    }
-    
-    .section-title i {
-        color: var(--usc-cardinal);
-    }
-
-    .paper-list {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .paper-card {
-        background: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 22px;
-        position: relative;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden; /* 为了左侧条 */
-    }
-
-    .paper-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        border-color: rgba(153, 0, 0, 0.2);
-    }
-
-    /* 左侧装饰条 */
-    .paper-card::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background: var(--border-color);
-        transition: background 0.3s;
-    }
-
-    .paper-card:hover::before {
-        background: var(--usc-cardinal); /* 悬停变红 */
-    }
-
-    .paper-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 15px;
-        margin-bottom: 8px;
-    }
-
-    .paper-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        line-height: 1.4;
-    }
-
-    .badge {
-        font-size: 0.75rem;
-        font-weight: 700;
-        padding: 4px 8px;
-        border-radius: 4px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
-        color: white;
-        background-color: var(--tag-manuscript);
-    }
-
-    .badge.stoc { background-color: var(--tag-stoc); }
-    .badge.ccc { background-color: var(--tag-ccc); }
-    .badge.itcs { background-color: var(--tag-itcs); }
-    .badge.tcc { background-color: var(--tag-tcc); }
-
-    .paper-authors {
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
         font-size: 0.95rem;
-        color: var(--text-secondary);
-        margin-bottom: 8px;
+        line-height: 1.65;
     }
+    .interest-keyword { color: var(--text-primary); font-weight: 600; }
+    .interest-icon { color: var(--usc-gold); margin-right: 6px; font-size: 0.9rem; }
 
-    .paper-authors b {
-        color: #000;
-        font-weight: 600;
-        /* border-bottom: 2px solid var(--usc-gold);  可选：给名字加个金色下划线 */ 
-    }
+    .contact-info { margin-top: 25px; }
+    .contact-item { display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px; text-decoration: none; transition: color 0.2s; }
+    .contact-item:hover { color: var(--usc-cardinal); }
+    .contact-item i { color: var(--usc-cardinal); width: 16px; text-align: center; }
 
-    .paper-venue {
-        font-style: italic;
-        font-family: 'Merriweather', serif;
-        font-size: 0.9rem;
-        color: #555;
-        margin-bottom: 15px;
-    }
+    .social-links { margin-top: 25px; display: flex; gap: 15px; }
+    .social-btn { width: 38px; height: 38px; border-radius: 50%; background: #f1f5f9; color: var(--text-primary); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; }
+    .social-btn:hover { background: var(--usc-cardinal); color: white; transform: translateY(-3px); }
 
-    .paper-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: auto;
-    }
+    /* --- 内容区样式 --- */
+    .section-title { font-family: 'Merriweather', serif; font-size: 1.75rem; padding-bottom: 15px; margin-bottom: 40px; border-bottom: 2px solid var(--border-color); position: relative; }
+    .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 60px; height: 2px; background: var(--usc-cardinal); }
 
-    .link-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--text-secondary);
-        text-decoration: none;
-        padding: 5px 12px;
-        background-color: #f7fafc;
-        border-radius: 4px;
-        transition: all 0.2s;
-    }
+    .paper-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; margin-bottom: 24px; transition: all 0.3s ease; }
+    .paper-card:hover { border-color: transparent; box-shadow: 0 12px 30px rgba(0,0,0,0.04); transform: translateY(-2px); }
 
-    .link-btn:hover {
-        background-color: var(--usc-cardinal);
-        color: white; /* 悬停红底白字 */
-    }
+    .paper-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; margin-bottom: 10px; }
+    .paper-title { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
     
-    .link-btn:hover i {
-        color: var(--usc-gold); /* 图标变金 */
-    }
+    .badge { font-family: 'Inter', sans-serif; font-size: 0.7rem; padding: 4px 12px; border-radius: 20px; color: white; background: var(--tag-manuscript); font-weight: 700; text-transform: uppercase; }
+    .badge.stoc { background: var(--tag-stoc); }
+    .badge.ccc { background: var(--tag-ccc); }
+    .badge.itcs { background: var(--tag-itcs); }
+    .badge.tcc { background: var(--tag-tcc); }
+
+    .paper-authors { font-size: 0.95rem; margin-bottom: 10px; color: var(--text-secondary); }
+    .paper-authors b { color: var(--text-primary); font-weight: 600; }
+    .paper-venue { color: var(--usc-cardinal); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; font-family: 'Inter', sans-serif; }
+
+    .paper-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .link-btn { background-color: #f8fafc; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 5px 14px; border-radius: 6px; font-size: 0.8rem; text-decoration: none; font-weight: 600; transition: all 0.2s; }
+    .link-btn:hover { background-color: white; border-color: var(--usc-cardinal); color: var(--usc-cardinal); }
 
     @media (max-width: 899px) {
-        .layout-wrapper { padding: 20px; }
-        .profile-card { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .avatar-container img { width: 140px; height: 140px; }
+        .layout-wrapper { padding: 40px 20px; }
+        .profile-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .contact-info { display: inline-block; text-align: left; }
+        .social-links { justify-content: center; }
+        .paper-header { flex-direction: column; gap: 8px; }
     }
 </style>
 </head>
 <body>
 
 <div class="layout-wrapper">
-    
     <aside class="profile-sidebar">
         <div class="profile-card">
             <div class="avatar-container">
@@ -374,16 +146,23 @@
             
             <div class="bio">
                 <p>Ph.D. student advised by <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank">Prof. Jiapeng Zhang</a> at University of Southern California.</p>
-                <p style="margin-top:10px;"><b>Research Interests:</b> My earlier work focused on lifting theorems and number-on-the-forehead communication complexity. Recently, I have been turning to Fourier analysis, quantum advantage, and lattice problems.</p>
+            </div>
+
+            <div class="research-interests">
+                <p>
+                    <i class="fa-solid fa-seedling interest-icon"></i> 
+                    <b>Research Interests:</b> My earlier work focused on <span class="interest-keyword">lifting theorems</span> and <span class="interest-keyword">number-on-the-forehead</span> communication complexity. 
+                    Recently, I have been turning to <span class="interest-keyword">Fourier analysis</span>, <span class="interest-keyword">quantum advantage</span>, and <span class="interest-keyword">lattice problems</span>.
+                </p>
             </div>
 
             <div class="contact-info">
                 <a href="mailto:guangxuy@usc.edu" class="contact-item">
-                    <i class="fas fa-envelope"></i> guangxuy@usc.edu
+                    <i class="fa-regular fa-envelope"></i> guangxuy@usc.edu
                 </a>
-                <span class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i> Los Angeles, CA
-                </span>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i> Los Angeles, CA
+                </div>
             </div>
 
             <div class="social-links">
@@ -398,8 +177,10 @@
     </aside>
 
     <main class="content-area">
-        <h2 class="section-title"><i class="fas fa-book-open"></i> Publications</h2>
-        <p style="font-size: 0.9em; color: #888; margin-bottom: 20px;">* In theoretical computer science, authors are typically listed alphabetically.</p>
+        <h2 class="section-title">Publications</h2>
+        <p style="font-size: 0.85rem; color: #94a3b8; margin-top: -25px; margin-bottom: 35px; font-style: italic;">
+            * In theoretical computer science, authors are typically listed alphabetically.
+        </p>
 
         <div class="paper-list">
             
@@ -410,9 +191,9 @@
                 </div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2025/081/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
-                    <a href="https://arxiv.org/abs/2506.16804" target="_blank" class="link-btn"><i class="fas fa-archive"></i> arXiv</a>
-                    <a href="Quantum.pdf" target="_blank" class="link-btn"><i class="fas fa-presentation"></i> Slides</a>
+                    <a href="https://eccc.weizmann.ac.il/report/2025/081/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
+                    <a href="https://arxiv.org/abs/2506.16804" target="_blank" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
+                    <a href="Quantum.pdf" target="_blank" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
                 </div>
             </article>
 
@@ -423,9 +204,9 @@
                 </div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2025/073/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
-                    <a href="https://arxiv.org/abs/2506.12420" target="_blank" class="link-btn"><i class="fas fa-archive"></i> arXiv</a>
-                    <a href="NOFlifting.pdf" target="_blank" class="link-btn"><i class="fas fa-presentation"></i> Slides</a>
+                    <a href="https://eccc.weizmann.ac.il/report/2025/073/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
+                    <a href="https://arxiv.org/abs/2506.12420" target="_blank" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
+                    <a href="NOFlifting.pdf" target="_blank" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
                 </div>
             </article>
 
@@ -436,7 +217,7 @@
                 </div>
                 <div class="paper-authors">Xudong Wu, <b>Guangxu Yang</b>, Penghui Yao</div>
                 <div class="paper-links">
-                    <a href="https://arxiv.org/abs/2511.17227" target="_blank" class="link-btn"><i class="fas fa-archive"></i> arXiv</a>
+                    <a href="https://arxiv.org/abs/2511.17227" target="_blank" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
                 </div>
             </article>
 
@@ -448,8 +229,8 @@
                 <div class="paper-authors">Mi-Ying Huang, Xinyu Mao, Shuo Wang, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-venue">40th Computational Complexity Conference</div>
                 <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2023/164/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC (Part I)</a>
-                    <a href="https://eccc.weizmann.ac.il/report/2024/067/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC (Part II)</a>
+                    <a href="https://eccc.weizmann.ac.il/report/2023/164/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC (Part I)</a>
+                    <a href="https://eccc.weizmann.ac.il/report/2024/067/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC (Part II)</a>
                 </div>
             </article>
 
@@ -461,9 +242,9 @@
                 <div class="paper-authors">Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-venue">16th Innovations in Theoretical Computer Science</div>
                 <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2024/070/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
-                    <a href="https://arxiv.org/abs/2411.10996" target="_blank" class="link-btn"><i class="fas fa-archive"></i> arXiv</a>
-                    <a href="Pointer Chasing.pdf" target="_blank" class="link-btn"><i class="fas fa-presentation"></i> Slides</a>
+                    <a href="https://eccc.weizmann.ac.il/report/2024/070/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
+                    <a href="https://arxiv.org/abs/2411.10996" target="_blank" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
+                    <a href="Pointer Chasing.pdf" target="_blank" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
                 </div>
             </article>
 
@@ -475,8 +256,8 @@
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-venue">56th Annual ACM Symposium on Theory of Computing</div>
                 <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2023/159/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
-                    <a href="CC of Collision.pdf" target="_blank" class="link-btn"><i class="fas fa-presentation"></i> Slides</a>
+                    <a href="https://eccc.weizmann.ac.il/report/2023/159/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
+                    <a href="CC of Collision.pdf" target="_blank" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
                 </div>
             </article>
 
@@ -488,9 +269,9 @@
                 <div class="paper-authors">Mi-Ying Huang, Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-venue">21st Theory of Cryptography Conference</div>
                 <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2023/137/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
-                    <a href="https://eprint.iacr.org/2023/1349" target="_blank" class="link-btn"><i class="fas fa-archive"></i> ePrint</a>
-                    <a href="CC of Key Agreement.pdf" target="_blank" class="link-btn"><i class="fas fa-presentation"></i> Slides</a>
+                    <a href="https://eccc.weizmann.ac.il/report/2023/137/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
+                    <a href="https://eprint.iacr.org/2023/1349" target="_blank" class="link-btn"><i class="fa-solid fa-box-archive"></i> ePrint</a>
+                    <a href="CC of Key Agreement.pdf" target="_blank" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
                 </div>
             </article>
 
@@ -501,8 +282,8 @@
                 </div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2022/019/" target="_blank" class="link-btn"><i class="fas fa-file-alt"></i> ECCC</a>
-                    <a href="https://arxiv.org/abs/2309.13517" target="_blank" class="link-btn"><i class="fas fa-archive"></i> arXiv</a>
+                    <a href="https://eccc.weizmann.ac.il/report/2022/019/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
+                    <a href="https://arxiv.org/abs/2309.13517" target="_blank" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
                 </div>
             </article>
 
