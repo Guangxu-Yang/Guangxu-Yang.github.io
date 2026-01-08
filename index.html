@@ -17,7 +17,6 @@
         --text-primary: #1a202c;
         --text-secondary: #4a5568;
         --border-color: #edf2f7;
-        /* 标签颜色保持不变 */
         --tag-stoc: #9b2c2c; --tag-ccc: #b7791f; --tag-itcs: #6b46c1; --tag-tcc: #2f855a; --tag-manuscript: #4a5568; 
     }
 
@@ -32,63 +31,69 @@
     }
 
     .layout-wrapper {
-        max-width: 1200px; 
+        max-width: 1350px; /* 进一步拓宽页面，确保标题单行 */
         margin: 0 auto; width: 100%;
         display: flex; flex-direction: column;
     }
 
     @media (min-width: 900px) {
-        .layout-wrapper { flex-direction: row; padding: 50px 40px; gap: 70px; }
-        aside.profile-sidebar { width: 280px; flex-shrink: 0; position: sticky; top: 50px; height: fit-content; }
+        .layout-wrapper { flex-direction: row; padding: 50px 50px; gap: 80px; }
+        aside.profile-sidebar { width: 300px; flex-shrink: 0; position: sticky; top: 50px; height: fit-content; }
         main.content-area { flex-grow: 1; }
     }
 
-    /* --- 侧边栏样式 --- */
-    .avatar-container img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 20px; }
-    h1 { font-family: 'Merriweather', serif; font-size: 2rem; margin: 0; line-height: 1.2; }
-    .chinese-name { font-size: 1.2rem; color: var(--text-secondary); font-weight: 400; margin-left: 10px; white-space: nowrap; }
-    .bio { font-size: 0.9rem; color: var(--text-secondary); margin: 15px 0; }
+    /* --- Sidebar --- */
+    .avatar-container img { width: 180px; height: 180px; border-radius: 50%; border: 4px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 25px; }
+    h1 { font-family: 'Merriweather', serif; font-size: 2.2rem; margin: 0; line-height: 1.2; }
+    .chinese-name { font-size: 1.3rem; color: var(--text-secondary); font-weight: 400; margin-left: 10px; white-space: nowrap; }
+    .bio { font-size: 0.95rem; color: var(--text-secondary); margin: 20px 0; }
     .bio a { color: var(--text-primary); text-decoration: none; border-bottom: 1px solid var(--usc-gold); font-weight: 600; }
     
-    .research-interests { margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color); font-size: 0.88rem; line-height: 1.6; }
+    .research-interests { margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border-color); font-size: 0.92rem; line-height: 1.6; }
     .interest-keyword { color: var(--text-primary); font-weight: 600; white-space: nowrap; }
     .interest-icon { color: var(--usc-gold); margin-right: 5px; }
 
-    .contact-item { display: flex; align-items: center; gap: 10px; color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 8px; text-decoration: none; }
-    .contact-item i { color: var(--usc-cardinal); width: 14px; text-align: center; }
+    .contact-info { margin-top: 25px; }
+    .contact-item { display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px; text-decoration: none; }
+    .contact-item i { color: var(--usc-cardinal); width: 16px; text-align: center; }
 
-    /* --- 论文列表优化 --- */
-    .section-title { font-family: 'Merriweather', serif; font-size: 1.6rem; padding-bottom: 10px; margin-bottom: 30px; border-bottom: 2px solid var(--border-color); position: relative; }
-    .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 50px; height: 2px; background: var(--usc-cardinal); }
+    /* --- Publications (Ultra-Wide Optimization) --- */
+    .section-title { font-family: 'Merriweather', serif; font-size: 1.8rem; padding-bottom: 12px; margin-bottom: 35px; border-bottom: 2px solid var(--border-color); position: relative; }
+    .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 60px; height: 2px; background: var(--usc-cardinal); }
 
-    .paper-card { padding: 16px 0; border-bottom: 1px solid var(--border-color); transition: padding-left 0.2s; }
-    .paper-card:hover { padding-left: 8px; }
+    .paper-card { padding: 20px 0; border-bottom: 1px solid var(--border-color); }
+    .paper-card:last-child { border-bottom: none; }
 
     .paper-header { 
         display: flex; 
         justify-content: space-between; 
         align-items: baseline; 
-        gap: 15px; 
-        margin-bottom: 4px;
+        gap: 30px; 
+        margin-bottom: 5px;
     }
 
     .paper-title { 
-        font-size: 1.02rem; 
+        font-size: 1.05rem; 
         font-weight: 700; 
         color: var(--text-primary); 
         flex-grow: 1;
         letter-spacing: -0.01em;
+        white-space: nowrap; /* 强制单行 */
+        overflow: hidden; 
+        text-overflow: ellipsis; /* 如果实在太长则显示省略号，保护布局 */
     }
     
+    /* 强制缩写大写样式 */
     .badge { 
-        font-size: 0.72rem; 
-        padding: 2px 8px; 
+        font-size: 0.75rem; 
+        padding: 3px 10px; 
         border-radius: 4px; 
         color: white; 
-        font-weight: 600; 
+        font-weight: 700; 
         white-space: nowrap; 
         flex-shrink: 0;
-        text-transform: none;
+        text-transform: uppercase; /* 强制大写，如 CCC 2025 */
+        letter-spacing: 0.5px;
     }
     .badge.stoc { background: var(--tag-stoc); }
     .badge.ccc { background: var(--tag-ccc); }
@@ -96,18 +101,23 @@
     .badge.tcc { background: var(--tag-tcc); }
     .badge.manuscript { background: var(--tag-manuscript); }
 
-    .paper-authors { font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 3px; }
+    .paper-authors { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 4px; }
     .paper-authors b { color: var(--text-primary); }
 
-    .paper-venue { color: #8a0000; font-weight: 500; font-size: 0.86rem; font-style: italic; margin-bottom: 8px; text-transform: none; }
+    .paper-venue { color: #8a0000; font-weight: 500; font-size: 0.9rem; font-style: italic; margin-bottom: 12px; }
 
-    .paper-links { display: flex; flex-wrap: wrap; gap: 15px; }
-    .link-btn { color: var(--usc-cardinal); font-size: 0.8rem; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+    .paper-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .link-btn { color: var(--usc-cardinal); font-size: 0.85rem; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
     .link-btn:hover { text-decoration: underline; }
+
+    @media (max-width: 1100px) {
+        .paper-title { white-space: normal; } /* 窄屏下允许折行以防文字丢失 */
+    }
 
     @media (max-width: 899px) {
         .layout-wrapper { padding: 30px 20px; }
-        .paper-header { flex-direction: column-reverse; gap: 5px; }
+        .paper-header { flex-direction: column-reverse; gap: 8px; }
+        .badge { align-self: flex-start; }
     }
 </style>
 </head>
@@ -125,7 +135,7 @@
 
             <div class="research-interests">
                 <p><i class="fa-solid fa-seedling interest-icon"></i> 
-                <b>Interests:</b> Earlier on <span class="interest-keyword">lifting theorems</span> & <span class="interest-keyword">NOF complexity</span>. Recently on <span class="interest-keyword">Fourier analysis</span>, <span class="interest-keyword">quantum advantage</span>, and <span class="interest-keyword">lattice problems</span>.</p>
+                <b>Interests:</b> My earlier work focused on <span class="interest-keyword">lifting theorems</span> and <span class="interest-keyword">NOF complexity</span>. Recently, I am turning to <span class="interest-keyword">Fourier analysis</span>, <span class="interest-keyword">quantum advantage</span>, and <span class="interest-keyword">lattice problems</span>.</p>
             </div>
 
             <div class="contact-info">
@@ -133,9 +143,9 @@
                 <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Los Angeles, CA</div>
             </div>
             
-            <div class="social-links" style="margin-top:20px; display:flex; gap:15px;">
-                <a href="https://github.com/guangxu-yang" style="color:var(--text-primary); font-size:1.2rem;"><i class="fab fa-github"></i></a>
-                <a href="https://scholar.google.com/citations?user=W_XuMDkAAAAJ" style="color:var(--text-primary); font-size:1.2rem;"><i class="fas fa-graduation-cap"></i></a>
+            <div class="social-links" style="margin-top:25px; display:flex; gap:18px;">
+                <a href="https://github.com/guangxu-yang" style="color:var(--text-primary); font-size:1.3rem;"><i class="fab fa-github"></i></a>
+                <a href="https://scholar.google.com/citations?user=W_XuMDkAAAAJ" style="color:var(--text-primary); font-size:1.3rem;"><i class="fas fa-graduation-cap"></i></a>
             </div>
         </div>
     </aside>
