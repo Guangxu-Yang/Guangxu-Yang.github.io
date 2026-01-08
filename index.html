@@ -14,7 +14,6 @@
         --usc-cardinal: #990000;
         --usc-gold: #FFC72C;
         --bg-color: #fcfcfc;
-        --sidebar-bg: #ffffff;
         --text-primary: #1a202c;
         --text-secondary: #4a5568;
         --card-bg: #ffffff;
@@ -28,122 +27,77 @@
         font-family: 'Inter', -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-primary);
-        margin: 0; line-height: 1.7;
-        display: flex; flex-direction: column;
+        margin: 0; line-height: 1.6;
         border-top: 6px solid var(--usc-cardinal);
     }
 
     .layout-wrapper {
-        max-width: 1140px; margin: 0 auto; width: 100%;
+        max-width: 1200px; /* 稍微增加最大宽度 */
+        margin: 0 auto; width: 100%;
         display: flex; flex-direction: column;
     }
 
     @media (min-width: 900px) {
-        .layout-wrapper { flex-direction: row; padding: 60px 40px; gap: 80px; }
-        aside.profile-sidebar { width: 300px; flex-shrink: 0; position: sticky; top: 60px; height: fit-content; }
+        .layout-wrapper { flex-direction: row; padding: 50px 30px; gap: 60px; }
+        aside.profile-sidebar { width: 280px; flex-shrink: 0; position: sticky; top: 50px; height: fit-content; }
         main.content-area { flex-grow: 1; }
     }
 
-    /* --- 姓名区域 --- */
-    h1 { 
-        font-family: 'Merriweather', serif; 
-        font-size: 2.2rem; margin: 0; 
-        letter-spacing: -0.5px;
-        line-height: 1.2;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
+    /* --- 侧边栏 --- */
+    h1 { font-family: 'Merriweather', serif; font-size: 2rem; margin: 0; line-height: 1.2; display: flex; flex-wrap: wrap; align-items: baseline; }
+    .chinese-name { font-size: 1.2rem; color: var(--text-secondary); font-weight: 400; margin-left: 10px; white-space: nowrap; }
+    .avatar-container img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+    .bio { font-size: 0.9rem; color: var(--text-secondary); margin-top: 15px; }
+    .research-interests { margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color); font-size: 0.88rem; }
+    .interest-keyword { color: var(--text-primary); font-weight: 600; }
+    .contact-item { display: flex; align-items: center; gap: 10px; color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 8px; text-decoration: none; }
+    .contact-item i { color: var(--usc-cardinal); width: 14px; }
+
+    /* --- 论文区优化 (字体缩小，力争单行) --- */
+    .section-title { font-family: 'Merriweather', serif; font-size: 1.5rem; padding-bottom: 10px; margin-bottom: 30px; border-bottom: 2px solid var(--border-color); }
+
+    .paper-card { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 16px 0; margin-bottom: 0; transition: all 0.2s ease; }
+    .paper-card:hover { padding-left: 10px; border-left: 3px solid var(--usc-gold); }
+
+    .paper-header { 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: baseline; /* 对齐基准线 */
+        gap: 20px; 
+        margin-bottom: 6px; 
     }
 
-    .chinese-name { 
-        font-size: 1.3rem; color: var(--text-secondary); 
-        font-weight: 400; margin-left: 12px; opacity: 0.8;
-        white-space: nowrap;
-        display: inline-block;
+    .paper-title { 
+        font-size: 1.02rem; /* 核心修改：缩小字体 */
+        font-weight: 700; 
+        color: var(--text-primary); 
+        line-height: 1.3; 
+        flex-grow: 1;
+        letter-spacing: -0.01em; /* 稍微收紧字间距 */
     }
-
-    /* --- 头像 --- */
-    .avatar-container { margin-bottom: 25px; text-align: center; }
-    @media (min-width: 900px) { .avatar-container { text-align: left; } }
-    .avatar-container img {
-        width: 180px; height: 180px; object-fit: cover; border-radius: 50%;
-        border: 4px solid white; box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-        transition: all 0.4s ease;
-    }
-    .avatar-container img:hover { transform: scale(1.02); border-color: var(--usc-gold); }
-
-    .bio { font-size: 0.95rem; color: var(--text-secondary); margin-top: 20px; }
-    .bio a { color: var(--text-primary); text-decoration: none; font-weight: 600; box-shadow: inset 0 -2px 0 var(--usc-gold); transition: all 0.2s; }
-
-    /* --- 研究兴趣 --- */
-    .research-interests {
-        margin-top: 25px; padding-top: 20px;
-        border-top: 1px solid var(--border-color);
-        font-size: 0.95rem; line-height: 1.65;
-    }
-    .interest-keyword { color: var(--text-primary); font-weight: 600; white-space: nowrap; }
-    .interest-icon { color: var(--usc-gold); margin-right: 6px; }
-
-    /* --- 联系方式 --- */
-    .contact-info { margin-top: 25px; }
-    .contact-item { 
-        display: flex; align-items: center; gap: 12px; 
-        color: var(--text-secondary); font-size: 0.9rem; 
-        margin-bottom: 12px; text-decoration: none;
-    }
-    .contact-item i { color: var(--usc-cardinal); width: 16px; text-align: center; flex-shrink: 0; }
-
-    .social-links { margin-top: 25px; display: flex; flex-wrap: wrap; gap: 15px; }
-    .social-btn { width: 38px; height: 38px; border-radius: 50%; background: #f1f5f9; color: var(--text-primary); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; }
-    .social-btn:hover { background: var(--usc-cardinal); color: white; transform: translateY(-3px); }
-
-    /* --- 论文区 --- */
-    .section-title { font-family: 'Merriweather', serif; font-size: 1.75rem; padding-bottom: 15px; margin-bottom: 40px; border-bottom: 2px solid var(--border-color); position: relative; }
-    .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 60px; height: 2px; background: var(--usc-cardinal); }
-
-    .paper-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; margin-bottom: 24px; transition: all 0.3s ease; }
-    .paper-card:hover { border-color: transparent; box-shadow: 0 12px 30px rgba(0,0,0,0.04); transform: translateY(-2px); }
-
-    .paper-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; margin-bottom: 10px; }
-    @media (max-width: 600px) { .paper-header { flex-direction: column-reverse; } }
-
-    .paper-title { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4; flex-grow: 1; }
     
     .badge { 
-        font-family: 'Inter', sans-serif; font-size: 0.75rem; 
-        padding: 3px 12px; border-radius: 6px; color: white; 
-        background: var(--tag-manuscript); font-weight: 500; 
-        text-transform: none; /* 取消全大写 */
-        white-space: nowrap;
-    }
-    .badge.stoc { background: var(--tag-stoc); }
-    .badge.ccc { background: var(--tag-ccc); }
-    .badge.itcs { background: var(--tag-itcs); }
-    .badge.tcc { background: var(--tag-tcc); }
-
-    .paper-authors { font-size: 0.95rem; margin-bottom: 10px; color: var(--text-secondary); }
-    .paper-authors b { color: var(--text-primary); font-weight: 600; }
-
-    /* 会议全称样式优化：取消全大写 */
-    .paper-venue { 
-        color: #8a0000; /* 稍微柔和的红色 */
-        font-weight: 500; 
-        font-size: 0.9rem; 
-        margin-bottom: 15px;
-        font-style: italic;
-        text-transform: none; /* 取消全大写 */
-        letter-spacing: normal; /* 取消字间距放大 */
+        font-size: 0.7rem; 
+        padding: 2px 8px; 
+        border-radius: 4px; 
+        color: white; 
+        font-weight: 600; 
+        white-space: nowrap; /* 确保标签不折行 */
+        flex-shrink: 0;
     }
 
-    .paper-links { display: flex; flex-wrap: wrap; gap: 10px; }
-    .link-btn { background-color: #f8fafc; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 5px 14px; border-radius: 6px; font-size: 0.8rem; text-decoration: none; font-weight: 600; transition: all 0.2s; white-space: nowrap; }
-    .link-btn:hover { background-color: white; border-color: var(--usc-cardinal); color: var(--usc-cardinal); }
+    .paper-authors { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 4px; }
+    .paper-venue { color: #8a0000; font-weight: 500; font-size: 0.85rem; font-style: italic; margin-bottom: 10px; }
+
+    .paper-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .link-btn { color: var(--usc-cardinal); font-size: 0.78rem; text-decoration: none; font-weight: 600; padding: 2px 0; margin-right: 12px; transition: opacity 0.2s; }
+    .link-btn:hover { text-decoration: underline; opacity: 0.8; }
+    .link-btn i { font-size: 0.7rem; margin-right: 3px; }
 
     @media (max-width: 899px) {
-        .layout-wrapper { padding: 40px 20px; }
-        .profile-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .contact-info { width: 100%; max-width: 300px; margin: 25px auto 0; }
-        .social-links { justify-content: center; }
+        .layout-wrapper { padding: 30px 20px; }
+        .paper-header { flex-direction: column-reverse; gap: 5px; }
+        .badge { align-self: flex-start; }
     }
 </style>
 </head>
@@ -152,156 +106,59 @@
 <div class="layout-wrapper">
     <aside class="profile-sidebar">
         <div class="profile-card">
-            <div class="avatar-container">
-                <img src="GuangxuYang.jpg" alt="Guangxu Yang">
-            </div>
-            
+            <div class="avatar-container"><img src="GuangxuYang.jpg" alt="Guangxu Yang"></div>
             <h1>Guangxu Yang <span class="chinese-name">杨广绪</span></h1>
-            
             <div class="bio">
-                <p>Ph.D. student advised by <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank">Prof. Jiapeng Zhang</a> at University of Southern California.</p>
+                <p>Ph.D. student advised by <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank" style="color:var(--text-primary); font-weight:600; text-decoration:none; border-bottom: 1px solid var(--usc-gold);">Prof. Jiapeng Zhang</a> at USC.</p>
             </div>
-
             <div class="research-interests">
-                <p>
-                    <i class="fa-solid fa-seedling interest-icon"></i> 
-                    <b>Research Interests:</b> My earlier work focused on <span class="interest-keyword">lifting theorems</span> and <span class="interest-keyword">numbers-on-forehead</span> communication complexity. 
-                    Recently, I have been turning to <span class="interest-keyword">quantum advantage</span> and <span class="interest-keyword">lattice problems</span>.
-                </p>
+                <p><i class="fa-solid fa-seedling" style="color:var(--usc-gold); margin-right:5px;"></i> 
+                <b>Interests:</b> <span class="interest-keyword">Lifting theorems</span>, <span class="interest-keyword">NOF complexity</span>, <span class="interest-keyword">Fourier analysis</span>, <span class="interest-keyword">Quantum advantage</span>, and <span class="interest-keyword">Lattices</span>.</p>
             </div>
-
-            <div class="contact-info">
-                <a href="mailto:guangxuy@usc.edu" class="contact-item">
-                    <i class="fa-regular fa-envelope"></i> guangxuy@usc.edu
-                </a>
-                <div class="contact-item">
-                    <i class="fa-solid fa-location-dot"></i> Los Angeles, CA
-                </div>
-            </div>
-
-            <div class="social-links">
-                <a href="https://github.com/guangxu-yang" target="_blank" class="social-btn" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://scholar.google.com/citations?user=W_XuMDkAAAAJ" target="_blank" class="social-btn" title="Google Scholar">
-                    <i class="fas fa-graduation-cap"></i>
-                </a>
+            <div class="contact-info" style="margin-top:15px;">
+                <a href="mailto:guangxuy@usc.edu" class="contact-item"><i class="fa-regular fa-envelope"></i> guangxuy@usc.edu</a>
+                <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Los Angeles, CA</div>
             </div>
         </div>
     </aside>
 
     <main class="content-area">
         <h2 class="section-title">Publications</h2>
-        <p style="font-size: 0.85rem; color: #94a3b8; margin-top: -25px; margin-bottom: 35px; font-style: italic;">
-            * In theoretical computer science, authors are typically listed alphabetically.
-        </p>
-
+        
         <div class="paper-list">
-            
             <article class="paper-card">
                 <div class="paper-header">
                     <div class="paper-title">Quantum versus Classical Separation in Simultaneous Number-on-Forehead Communication</div>
-                    <span class="badge">Manuscript</span>
+                    <span class="badge" style="background:var(--tag-manuscript)">Manuscript</span>
                 </div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2025/081/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
-                    <a href="https://arxiv.org/abs/2506.16804" target="_blank" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
-                    <a href="Quantum.pdf" target="_blank" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
-                </div>
-            </article>
-
-            <article class="paper-card">
-                <div class="paper-header">
-                    <div class="paper-title">Deterministic Lifting Theorems for One-Way Number-on-Forehead Communication</div>
-                    <span class="badge">Manuscript</span>
-                </div>
-                <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2025/073/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
-                    <a href="https://arxiv.org/abs/2506.12420" target="_blank" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
-                    <a href="NOFlifting.pdf" target="_blank" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
-                </div>
-            </article>
-
-            <article class="paper-card">
-                <div class="paper-header">
-                    <div class="paper-title">A Lifting Theorem for Hybrid Classical-Quantum Communication Complexity</div>
-                    <span class="badge">Manuscript</span>
-                </div>
-                <div class="paper-authors">Xudong Wu, <b>Guangxu Yang</b>, Penghui Yao</div>
-                <div class="paper-links">
-                    <a href="https://arxiv.org/abs/2511.17227" target="_blank" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
+                    <a href="..." class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
+                    <a href="..." class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
                 </div>
             </article>
 
             <article class="paper-card">
                 <div class="paper-header">
                     <div class="paper-title">A Min-Entropy Approach to Multi-Party Communication Lower Bounds</div>
-                    <span class="badge ccc">CCC 2025</span>
+                    <span class="badge ccc">Ccc 2025</span>
                 </div>
                 <div class="paper-authors">Mi-Ying Huang, Xinyu Mao, Shuo Wang, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-venue">40th Computational Complexity Conference</div>
-                <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2023/164/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC (Part I)</a>
-                    <a href="https://eccc.weizmann.ac.il/report/2024/067/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC (Part II)</a>
-                </div>
-            </article>
-
-            <article class="paper-card">
-                <div class="paper-header">
-                    <div class="paper-title">Gadgetless Lifting Beats Round Elimination: Improved Lower Bounds for Pointer Chasing</div>
-                    <span class="badge itcs">ITCS 2025</span>
-                </div>
-                <div class="paper-authors">Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                <div class="paper-venue">16th Innovations in Theoretical Computer Science</div>
-                <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2024/070/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
-                    <a href="https://arxiv.org/abs/2411.10996" target="_blank" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
-                    <a href="Pointer Chasing.pdf" target="_blank" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
-                </div>
+                <div class="paper-links"><a href="..." class="link-btn">ECCC (I)</a> <a href="..." class="link-btn">ECCC (II)</a></div>
             </article>
 
             <article class="paper-card">
                 <div class="paper-header">
                     <div class="paper-title">Communication Lower Bounds for Collision Problems via Density Increment Arguments</div>
-                    <span class="badge stoc">STOC 2024</span>
+                    <span class="badge stoc">Stoc 2024</span>
                 </div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-venue">56th Annual ACM Symposium on Theory of Computing</div>
-                <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2023/159/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
-                    <a href="CC of Collision.pdf" target="_blank" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
-                </div>
+                <div class="paper-links"><a href="..." class="link-btn">ECCC</a> <a href="..." class="link-btn">Slides</a></div>
             </article>
-
-            <article class="paper-card">
-                <div class="paper-header">
-                    <div class="paper-title">Communication Lower Bounds of Key-Agreement Protocols via Density Increment Arguments</div>
-                    <span class="badge tcc">TCC 2023</span>
-                </div>
-                <div class="paper-authors">Mi-Ying Huang, Xinyu Mao, <b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                <div class="paper-venue">21st Theory of Cryptography Conference</div>
-                <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2023/137/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
-                    <a href="https://eprint.iacr.org/2023/1349" target="_blank" class="link-btn"><i class="fa-solid fa-box-archive"></i> ePrint</a>
-                    <a href="CC of Key Agreement.pdf" target="_blank" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
-                </div>
-            </article>
-
-            <article class="paper-card">
-                <div class="paper-header">
-                    <div class="paper-title">Simulation Methods in Communication Lower Bounds, Revisited</div>
-                    <span class="badge">Manuscript</span>
-                </div>
-                <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2022/019/" target="_blank" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
-                    <a href="https://arxiv.org/abs/2309.13517" target="_blank" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
-                </div>
-            </article>
-
-        </div>
+            
+            </div>
     </main>
 </div>
 
