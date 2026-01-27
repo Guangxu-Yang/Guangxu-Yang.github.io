@@ -39,7 +39,7 @@
     @media (min-width: 900px) {
         .layout-wrapper { flex-direction: row; padding: 50px 50px; gap: 80px; }
         aside.profile-sidebar { width: 300px; flex-shrink: 0; position: sticky; top: 50px; height: fit-content; }
-        main.content-area { flex-grow: 1; min-width: 0; } /* 防止主区溢出 */
+        main.content-area { flex-grow: 1; min-width: 0; }
     }
 
     /* --- Sidebar --- */
@@ -50,38 +50,34 @@
     .bio a { color: var(--text-primary); text-decoration: none; border-bottom: 1px solid var(--usc-gold); font-weight: 600; }
     
     .research-interests { margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border-color); font-size: 0.92rem; line-height: 1.6; }
-    .interest-keyword { color: var(--text-primary); font-weight: 600; white-space: nowrap; }
     .interest-icon { color: var(--usc-gold); margin-right: 5px; }
 
     .contact-info { margin-top: 25px; }
     .contact-item { display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px; text-decoration: none; }
     .contact-item i { color: var(--usc-cardinal); width: 16px; text-align: center; }
 
-    /* --- Publications (Fixed Optimization) --- */
+    /* --- Publications --- */
     .section-title { font-family: 'Merriweather', serif; font-size: 1.8rem; padding-bottom: 12px; margin-bottom: 35px; border-bottom: 2px solid var(--border-color); position: relative; }
     .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 60px; height: 2px; background: var(--usc-cardinal); }
 
-    .paper-card { padding: 20px 0; border-bottom: 1px solid var(--border-color); }
+    .paper-card { padding: 25px 0; border-bottom: 1px solid var(--border-color); }
     .paper-card:last-child { border-bottom: none; }
 
     .paper-header { 
         display: flex; 
         justify-content: space-between; 
-        align-items: center; /* 居中对齐能让单行标题视觉更稳 */
+        align-items: center; 
         gap: 20px; 
-        margin-bottom: 6px;
+        margin-bottom: 8px;
     }
 
     .paper-title { 
-        font-size: 1.05rem; 
+        font-size: 1.1rem; 
         font-weight: 700; 
         color: var(--text-primary); 
-        flex: 1; /* 占据剩余所有空间 */
-        min-width: 0; /* 允许 Flex 项目缩小，防止溢出 */
+        flex: 1; 
+        min-width: 0;
         letter-spacing: -0.01em;
-        white-space: nowrap; /* 宽屏强制单行 */
-        overflow: hidden; 
-        text-overflow: ellipsis; 
     }
     
     .badge { 
@@ -91,36 +87,35 @@
         color: white; 
         font-weight: 700; 
         white-space: nowrap; 
-        flex-shrink: 0; /* 核心：防止标签被标题挤扁 */
+        flex-shrink: 0;
         text-transform: uppercase; 
         letter-spacing: 0.5px;
-        text-align: center;
     }
     .badge.stoc { background: var(--tag-stoc); }
-    .badge.ccc { background: var(--tag-ccc); }
-    .badge.itcs { background: var(--tag-itcs); }
-    .badge.tcc { background: var(--tag-tcc); }
     .badge.manuscript { background: var(--tag-manuscript); }
 
     .paper-authors { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 4px; }
     .paper-authors b { color: var(--text-primary); }
 
-    .paper-venue { color: #8a0000; font-weight: 500; font-size: 0.9rem; font-style: italic; margin-bottom: 12px; }
+    .paper-venue { color: #8a0000; font-weight: 500; font-size: 0.9rem; font-style: italic; margin-bottom: 10px; }
+
+    /* 新增：介绍文本样式 */
+    .paper-description { 
+        font-size: 0.9rem; 
+        color: var(--text-secondary); 
+        margin: 10px 0 15px 0; 
+        line-height: 1.6;
+        border-left: 2px solid var(--border-color);
+        padding-left: 15px;
+    }
 
     .paper-links { display: flex; flex-wrap: wrap; gap: 20px; }
     .link-btn { color: var(--usc-cardinal); font-size: 0.85rem; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
     .link-btn:hover { text-decoration: underline; }
 
-    /* 优化：当屏幕宽度不足以承载超长单行标题时，恢复折行 */
-    @media (max-width: 1250px) {
-        .paper-title { white-space: normal; overflow: visible; }
-        .paper-header { align-items: flex-start; }
-    }
-
     @media (max-width: 899px) {
         .layout-wrapper { padding: 30px 20px; }
-        .paper-header { flex-direction: column-reverse; gap: 8px; }
-        .badge { align-self: flex-start; }
+        .paper-header { flex-direction: column-reverse; align-items: flex-start; gap: 8px; }
     }
 </style>
 </head>
@@ -138,7 +133,7 @@
 
             <div class="research-interests">
                 <p><i class="fa-solid fa-seedling interest-icon"></i> 
-                <b>Research Interests:</b> Communication Complexity, Lattices and Quantum Algorithms.  </p>
+                <b>Research Interests:</b> Communication Complexity, Lattices and Quantum Algorithms. </p>
             </div>
 
             <div class="contact-info">
@@ -157,7 +152,6 @@
         <h2 class="section-title">Selected Publications</h2>
         
         <div class="paper-list">
-
             
             <article class="paper-card">
                 <div class="paper-header">
@@ -165,6 +159,10 @@
                     <span class="badge manuscript">In Preparation</span>
                 </div>
                 <div class="paper-authors"><b>Guangxu Yang</b></div>
+                <p class="paper-description">
+                    本文探讨了在 one-way NOF 模型下的量子优势。我们证明了对于某些特定函数，量子通信复杂度可以达到相对于经典复杂度的指数级提升。
+                    (This paper investigates quantum advantages in the one-way NOF model, showing exponential gaps for specific functions.)
+                </p>
             </article>
 
             <article class="paper-card">
@@ -173,6 +171,10 @@
                     <span class="badge manuscript">Manuscript</span>
                 </div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+                <p class="paper-description">
+                    我们为 one-way NOF 模型证明了新的确定性提升定理（Lifting Theorems），将查询复杂度下界转化为通信复杂度下界。
+                    (We prove new deterministic lifting theorems for the one-way NOF model, bridging query complexity and communication complexity.)
+                </p>
                 <div class="paper-links">
                     <a href="https://eccc.weizmann.ac.il/report/2025/073/" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
                     <a href="https://arxiv.org/abs/2506.12420" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
@@ -187,6 +189,10 @@
                 </div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
                 <div class="paper-venue">56th Annual ACM Symposium on Theory of Computing</div>
+                <p class="paper-description">
+                    利用密度增量分析方法（Density Increment Arguments），我们为碰撞问题（Collision Problems）建立了一套新的通信复杂度下界分析框架。
+                    (Using density increment arguments, we establish a new framework for proving communication lower bounds for collision problems.)
+                </p>
                 <div class="paper-links">
                     <a href="https://eccc.weizmann.ac.il/report/2023/159/" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
                     <a href="CC of Collision.pdf" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
