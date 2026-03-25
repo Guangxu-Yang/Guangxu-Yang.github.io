@@ -12,11 +12,14 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
     :root {
-        --usc-red: #990000;
+        /* USC Official Brand Colors */
+        --usc-cardinal: #990000;
+        --usc-gold: #FFC72C;
+        --usc-gold-light: #fff5d6; /* 用于极简风的淡金色背景悬停 */
+        
         --text-dark: #1a1a1a;
         --text-gray: #4a4a4a;
         --text-light: #666666;
-        --link-color: #0056b3; /* 经典的学术蓝，你也可以换回红色 */
         --bg-color: #ffffff;
     }
 
@@ -30,6 +33,7 @@
         padding: 50px 20px;
         line-height: 1.7;
         font-size: 16px;
+        border-top: 6px solid var(--usc-cardinal); /* 顶部加上一抹经典的特洛伊红 */
     }
 
     /* 核心布局：单栏居中，限制最大宽度，阅读体验最佳 */
@@ -52,6 +56,7 @@
         border-radius: 50%;
         object-fit: cover;
         box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border: 3px solid var(--usc-gold); /* 头像加上极细的 USC 金边框 */
     }
 
     .profile-info h1 {
@@ -84,14 +89,16 @@
     }
 
     a {
-        color: var(--link-color);
+        color: var(--usc-cardinal); /* 全局链接改为特洛伊红 */
         text-decoration: none;
-        transition: color 0.2s;
+        transition: all 0.2s ease-in-out;
     }
 
     a:hover {
-        color: var(--usc-red);
+        color: #7a0000; /* 悬停时稍微加深红色 */
         text-decoration: underline;
+        text-decoration-color: var(--usc-gold); /* 悬停下划线显示金色，细节拉满 */
+        text-underline-offset: 4px;
     }
 
     /* --- 正文排版 --- */
@@ -99,7 +106,7 @@
         font-family: 'Lora', serif;
         font-size: 1.5rem;
         color: var(--text-dark);
-        border-bottom: 1px solid #eaeaea;
+        border-bottom: 2px solid var(--usc-gold); /* 标题下划线改为特洛伊金 */
         padding-bottom: 8px;
         margin-top: 50px;
         margin-bottom: 25px;
@@ -149,17 +156,20 @@
 
     .paper-links {
         font-size: 0.9rem;
-        font-family: monospace; /* 代码风格字体，非常学术 */
+        font-family: monospace; 
         color: var(--text-light);
     }
 
     .paper-links a {
-        color: var(--usc-red); /* 链接使用 USC 红 */
+        color: var(--usc-cardinal);
         margin-right: 8px;
+        padding: 2px 4px;
+        border-radius: 3px;
     }
 
     .paper-links a:hover {
-        background-color: #fff0f0; /* 极淡的红色背景，增加交互感 */
+        background-color: var(--usc-gold-light); /* 悬停背景淡金色 */
+        color: var(--usc-cardinal);
         text-decoration: none;
     }
 
