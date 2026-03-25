@@ -113,11 +113,10 @@
             <p>I am a Ph.D. student in Computer Science at the University of Southern California, very fortunate to be advised by <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank">Prof. Jiapeng Zhang</a>.</p>
             
             <p>I am interested in <b>Communication Complexity</b> and <b>Circuit Complexity</b>. My previous research primarily focused on developing new techniques in communication complexity, motivated by challenges in quantum advantage, cryptography, and circuit lower bounds. My research has focused on:</p>
-
             <ul class="research-list">
-                <li><b>Quantum vs. Classical Communication:</b> I establish the first exponential separation between quantum and randomized communication complexity in the one-way Numbers-on-Forehead (NOF) model, resolving a long-standing open problem.</li>
-                <li><b>Lifting Theorems:</b> I propose novel lifting frameworks connecting two-party communication with the NOF model. I established a deterministic lifting theorem for one-way NOF, and further developed lifting techniques to achieve the first non-trivial trade-off in hybrid classical-quantum two-way communication.</li>
+                <li><b>Lifting Theorems in Numbers-on-Forehead Communication:</b> I propose novel lifting frameworks connecting two-party communication with the NOF model. I established a deterministic lifting theorem for one-way NOF.</li>
                 <li><b>Gadgetless Lifting:</b> I introduce a gadgetless lifting framework that extends query-to-communication lifting techniques to the gadgetless setting, resolving several open problems related to Collision Finding, Pointer Chasing, and Key Agreement.</li>
+                <li><b>Quantum vs. Classical Communication:</b>  I further developed lifting techniques to achieve the first non-trivial trade-off in hybrid classical-quantum two-way communication, and I established the first exponential separation between quantum and randomized communication complexity in the one-way Numbers-on-Forehead (NOF) model, resolving a long-standing open problem.</li>
             </ul>
         </div>
 
@@ -128,9 +127,6 @@
             <article class="paper-card">
                 <div class="paper-title">Exponential Separation of Quantum and Classical One-Way Numbers-on-Forehead Communication</div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                <div class="paper-description">
-                    <p>In this paper, we establish the first exponential separation between quantum and randomized communication complexity in one-way NOF model. Specifically, we define a lifted variant of the Hidden Matching problem of Bar-Yossef, Jayram, and Kerenidis (STOC 2004) and show that it admits an \(O(\log n)\)-cost quantum protocol in the one-way NOF setting. By contrast, we prove that any \(k\)-party one-way randomized protocol for this problem requires communication \(\Omega(\frac{n^{1/3}}{2^{k/3}})\).</p>
-                </div>
                 <div class="paper-links">
                     <a href="https://eccc.weizmann.ac.il/report/2025/081/" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
                     <a href="" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
@@ -141,9 +137,6 @@
             <article class="paper-card">
                 <div class="paper-title">A Lifting Theorem for Hybrid Classical-Quantum Communication Complexity</div>
                 <div class="paper-authors">Xudong Wu, <b>Guangxu Yang</b>, Penghui Yao</div>
-                <div class="paper-description">
-                    <p>In this paper, we investigate a model of hybrid classical-quantum communication complexity, in which two parties first exchange classical messages and subsequently communicate using quantum messages. We further develop the lifting techniques to get the first non-trivial trade-off between classical and quantum communication in hybrid two-way communication complexity.</p>
-                </div>
                 <div class="paper-links">
                     <a href="https://scirate.com/arxiv/2511.17227" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
                 </div>
@@ -152,9 +145,6 @@
             <article class="paper-card">
                 <div class="paper-title">Deterministic Lifting Theorems for One-Way Numbers-on-Forehead Communication</div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                <div class="paper-description">
-                    <p>We propose a novel lifting framework connecting two-party communication with the Numbers-on-Forehead communication model, establishing a deterministic lifting theorem that translates one-way two-party lower bounds into the one-way NOF setting. By our NOF lifting theorem, we get an \(\Omega(\frac{n}{2^k})\) vs \(O(1)\) explicit separation between deterministic and randomized \(k\)-party one-way NOF communication.</p>
-                </div>
                 <div class="paper-links">
                     <a href="https://eccc.weizmann.ac.il/report/2025/073/" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
                     <a href="https://arxiv.org/abs/2506.12420" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
@@ -165,9 +155,6 @@
             <article class="paper-card">
                 <div class="paper-title">Communication Lower Bounds for Collision Problems via Density Increment Arguments</div>
                 <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                <div class="paper-description">
-                    <p>In this paper, we propose a gadgetless lifting framework that extends query-to-communication lifting techniques to the gadgetless setting. We further develop this framework to resolve some open problems in communication complexity such as Collision Finding, Pointer Chasing, Key Agreement, Set Intersection which have broad applications in areas including cryptography, proof complexity, and streaming lower bounds.</p>
-                </div>
                 <div class="paper-links">
                     <a href="https://eccc.weizmann.ac.il/report/2023/159/" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
                     <a href="CC of Collision.pdf" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
