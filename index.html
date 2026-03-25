@@ -6,169 +6,262 @@
 <title>Guangxu Yang | USC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
     :root {
-        --usc-cardinal: #990000;
-        --usc-gold: #FFC72C;
-        --bg-color: #fcfcfc;
-        --text-primary: #1a202c;
-        --text-secondary: #4a5568;
-        --border-color: #edf2f7;
-        --tag-stoc: #9b2c2c; --tag-ccc: #b7791f; --tag-itcs: #6b46c1; --tag-tcc: #2f855a; --tag-manuscript: #4a5568; 
+        --usc-red: #990000;
+        --text-dark: #1a1a1a;
+        --text-gray: #4a4a4a;
+        --text-light: #666666;
+        --link-color: #0056b3; /* 经典的学术蓝，你也可以换回红色 */
+        --bg-color: #ffffff;
     }
 
-    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
     body {
-        font-family: 'Inter', -apple-system, sans-serif;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         background-color: var(--bg-color);
-        color: var(--text-primary);
-        margin: 0; line-height: 1.6;
-        border-top: 6px solid var(--usc-cardinal);
+        color: var(--text-gray);
+        margin: 0; 
+        padding: 50px 20px;
+        line-height: 1.7;
+        font-size: 16px;
     }
 
-    .layout-wrapper {
-        max-width: 1200px; /* Slightly narrower for better reading experience like Yanyi Liu's */
-        margin: 0 auto; width: 100%;
-        display: flex; flex-direction: column;
+    /* 核心布局：单栏居中，限制最大宽度，阅读体验最佳 */
+    .container {
+        max-width: 820px;
+        margin: 0 auto;
     }
 
-    @media (min-width: 900px) {
-        .layout-wrapper { flex-direction: row; padding: 50px; gap: 60px; }
-        aside.profile-sidebar { width: 280px; flex-shrink: 0; position: sticky; top: 50px; height: fit-content; }
-        main.content-area { flex-grow: 1; min-width: 0; }
+    /* --- 顶部个人信息区 --- */
+    .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 50px;
     }
 
-    /* --- Sidebar --- */
-    .avatar-container img { width: 180px; height: 180px; border-radius: 50%; border: 4px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 25px; }
-    h1 { font-family: 'Merriweather', serif; font-size: 2.2rem; margin: 0; line-height: 1.2; }
-    .chinese-name { font-size: 1.3rem; color: var(--text-secondary); font-weight: 400; margin-left: 10px; white-space: nowrap; }
-    .bio { font-size: 0.95rem; color: var(--text-secondary); margin: 20px 0; }
-    
-    .contact-info { margin-top: 25px; }
-    .contact-item { display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 10px; text-decoration: none; }
-    .contact-item i { color: var(--usc-cardinal); width: 16px; text-align: center; }
-    .contact-item:hover { color: var(--usc-cardinal); }
-
-    /* --- Content Area & Typography --- */
-    a { color: var(--usc-cardinal); text-decoration: none; font-weight: 500; }
-    a:hover { text-decoration: underline; }
-    
-    .intro-text { font-size: 1.05rem; color: var(--text-primary); margin-bottom: 30px; }
-    
-    .research-list { margin-top: 15px; padding-left: 20px; }
-    .research-list li { margin-bottom: 15px; font-size: 1rem; color: var(--text-primary); }
-    .research-list b { color: #000; font-size: 1.05rem;}
-
-    .section-title { font-family: 'Merriweather', serif; font-size: 1.6rem; padding-bottom: 10px; margin-top: 45px; margin-bottom: 25px; border-bottom: 2px solid var(--border-color); position: relative; }
-    .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 60px; height: 2px; background: var(--usc-cardinal); }
-
-    /* --- Publications --- */
-    .paper-card { margin-bottom: 30px; }
-    
-    .paper-title { font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin-bottom: 5px; letter-spacing: -0.01em; }
-    
-    .paper-authors { font-size: 1rem; color: var(--text-secondary); margin-bottom: 8px; }
-    .paper-authors b { color: var(--text-primary); font-weight: 600; }
-
-    .paper-description { 
-        font-size: 0.95rem; 
-        color: var(--text-secondary); 
-        margin: 10px 0; 
-        line-height: 1.6;
-        border-left: 3px solid var(--border-color);
-        padding-left: 15px;
+    .profile-image img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .paper-links { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 10px; }
-    .link-btn { font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border-color); padding: 4px 12px; border-radius: 4px; background: white; transition: all 0.2s; }
-    .link-btn:hover { background: var(--border-color); text-decoration: none; }
-    .link-btn i { margin-right: 5px; color: var(--usc-cardinal); }
+    .profile-info h1 {
+        font-family: 'Lora', serif;
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin: 0 0 5px 0;
+        letter-spacing: -0.02em;
+    }
 
+    .chinese-name {
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: var(--text-light);
+        margin-left: 8px;
+    }
+
+    .profile-info .title {
+        font-size: 1.05rem;
+        color: var(--text-gray);
+        margin: 0 0 15px 0;
+    }
+
+    .contact-links {
+        display: flex;
+        gap: 15px;
+        font-size: 0.95rem;
+    }
+
+    a {
+        color: var(--link-color);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    a:hover {
+        color: var(--usc-red);
+        text-decoration: underline;
+    }
+
+    /* --- 正文排版 --- */
+    h2 {
+        font-family: 'Lora', serif;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        border-bottom: 1px solid #eaeaea;
+        padding-bottom: 8px;
+        margin-top: 50px;
+        margin-bottom: 25px;
+    }
+
+    .intro p {
+        margin-bottom: 15px;
+    }
+
+    ul.research-list {
+        padding-left: 20px;
+        margin-top: 10px;
+    }
+
+    ul.research-list li {
+        margin-bottom: 10px;
+    }
+
+    ul.research-list b {
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    /* --- 论文列表 --- */
+    .paper-item {
+        margin-bottom: 30px;
+    }
+
+    .paper-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        line-height: 1.4;
+        margin-bottom: 4px;
+    }
+
+    .paper-authors {
+        font-size: 0.95rem;
+        color: var(--text-gray);
+        margin-bottom: 4px;
+    }
+
+    .paper-authors b {
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    .paper-links {
+        font-size: 0.9rem;
+        font-family: monospace; /* 代码风格字体，非常学术 */
+        color: var(--text-light);
+    }
+
+    .paper-links a {
+        color: var(--usc-red); /* 链接使用 USC 红 */
+        margin-right: 8px;
+    }
+
+    .paper-links a:hover {
+        background-color: #fff0f0; /* 极淡的红色背景，增加交互感 */
+        text-decoration: none;
+    }
+
+    /* --- 页脚 --- */
+    footer {
+        margin-top: 60px;
+        padding-top: 20px;
+        border-top: 1px solid #eaeaea;
+        font-size: 0.85rem;
+        color: var(--text-light);
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 600px) {
+        .profile-header {
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+        }
+        .contact-links {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
 </style>
 </head>
 <body>
 
-<div class="layout-wrapper">
-    <aside class="profile-sidebar">
-        <div class="profile-card">
-            <div class="avatar-container"><img src="GuangxuYang.jpg" alt="Guangxu Yang"></div>
-            <h1>Guangxu Yang <br><span class="chinese-name" style="margin-left:0;">杨广绪</span></h1>
-            
-            <div class="contact-info">
-                <a href="mailto:guangxuy@usc.edu" class="contact-item"><i class="fa-regular fa-envelope"></i> guangxuy@usc.edu</a>
-                <a href="https://scholar.google.com/citations?user=W_XuMDkAAAAJ" class="contact-item" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-                <a href="https://eccc.weizmann.ac.il/author/1510/" class="contact-item" target="_blank"><i class="fa-solid fa-file-lines"></i> ECCC Profile</a>
+<div class="container">
+    
+    <header class="profile-header">
+        <div class="profile-image">
+            <img src="GuangxuYang.jpg" alt="Guangxu Yang">
+        </div>
+        <div class="profile-info">
+            <h1>Guangxu Yang <span class="chinese-name">杨广绪</span></h1>
+            <p class="title">Ph.D. Student in Computer Science at University of Southern California</p>
+            <div class="contact-links">
+                <a href="mailto:guangxuy@usc.edu"><i class="fa-regular fa-envelope"></i> guangxuy@usc.edu</a>
+                <a href="https://scholar.google.com/citations?user=W_XuMDkAAAAJ" target="_blank"><i class="fa-brands fa-google"></i> Google Scholar</a>
+                <a href="https://eccc.weizmann.ac.il/author/1510/" target="_blank"><i class="fa-solid fa-file-lines"></i> ECCC</a>
             </div>
         </div>
-    </aside>
+    </header>
 
-    <main class="content-area">
+    <section class="intro">
+        <p>I am a Ph.D. student in Computer Science at the University of Southern California, very fortunate to be advised by <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank">Prof. Jiapeng Zhang</a>.</p>
         
-        <div class="intro-text">
-            <p>I am a Ph.D. student in Computer Science at the University of Southern California, very fortunate to be advised by <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank">Prof. Jiapeng Zhang</a>.</p>
-            
-            <p>I am interested in <b>Communication Complexity</b> and <b>Circuit Complexity</b>. My previous research primarily focused on developing new techniques in communication complexity, motivated by challenges in quantum advantage, cryptography, and circuit lower bounds. My research has focused on:</p>
-            <ul class="research-list">
-                <li><b>Lifting Theorems in Numbers-on-Forehead Communication:</b> I propose novel lifting frameworks connecting two-party communication with the NOF model. I established a deterministic lifting theorem for one-way NOF.</li>
-                <li><b>Gadgetless Lifting:</b> I introduce a gadgetless lifting framework that extends query-to-communication lifting techniques to the gadgetless setting, resolving several open problems related to Collision Finding, Pointer Chasing, and Key Agreement.</li>
-                <li><b>Quantum vs. Classical Communication:</b>  I further developed lifting techniques to achieve the first non-trivial trade-off in hybrid classical-quantum two-way communication, and I established the first exponential separation between quantum and randomized communication complexity in the one-way Numbers-on-Forehead (NOF) model, resolving a long-standing open problem.</li>
-            </ul>
+        <p>I am interested in <b>Communication Complexity</b> and <b>Circuit Complexity</b>. My previous research primarily focused on developing new techniques in communication complexity, motivated by challenges in quantum advantage, cryptography, and circuit lower bounds. My research has focused on:</p>
+        
+        <ul class="research-list">
+            <li><b>Lifting Theorems in Numbers-on-Forehead Communication:</b> I propose novel lifting frameworks connecting two-party communication with the NOF model. I established a deterministic lifting theorem for one-way NOF.</li>
+            <li><b>Gadgetless Lifting:</b> I introduce a gadgetless lifting framework that extends query-to-communication lifting techniques to the gadgetless setting, resolving several open problems related to Collision Finding, Pointer Chasing, and Key Agreement.</li>
+            <li><b>Quantum vs. Classical Communication:</b> I further developed lifting techniques to achieve the first non-trivial trade-off in hybrid classical-quantum two-way communication, and established the first exponential separation between quantum and randomized communication complexity in the one-way NOF model, resolving a long-standing open problem.</li>
+        </ul>
+    </section>
+
+    <section class="publications">
+        <h2>Publications & Manuscripts</h2>
+
+        <div class="paper-item">
+            <div class="paper-title">Exponential Separation of Quantum and Classical One-Way Numbers-on-Forehead Communication</div>
+            <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+            <div class="paper-links">
+                <a href="https://eccc.weizmann.ac.il/report/2025/081/" target="_blank">[ECCC]</a>
+                <a href="#" target="_blank">[arXiv]</a>
+                <a href="QCCvsRCC.pdf" target="_blank">[Slides]</a>
+            </div>
         </div>
 
-        <h2 class="section-title">Publications & Manuscripts</h2>
-
-        <div class="paper-list">
-
-            <article class="paper-card">
-                <div class="paper-title">Exponential Separation of Quantum and Classical One-Way Numbers-on-Forehead Communication</div>
-                <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2025/081/" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
-                    <a href="" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
-                    <a href="QCCvsRCC.pdf" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
-                </div>
-            </article>
-
-            <article class="paper-card">
-                <div class="paper-title">A Lifting Theorem for Hybrid Classical-Quantum Communication Complexity</div>
-                <div class="paper-authors">Xudong Wu, <b>Guangxu Yang</b>, Penghui Yao</div>
-                <div class="paper-links">
-                    <a href="https://scirate.com/arxiv/2511.17227" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
-                </div>
-            </article>
-            
-            <article class="paper-card">
-                <div class="paper-title">Deterministic Lifting Theorems for One-Way Numbers-on-Forehead Communication</div>
-                <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2025/073/" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
-                    <a href="https://arxiv.org/abs/2506.12420" class="link-btn"><i class="fa-brands fa-arxiv"></i> arXiv</a>
-                    <a href="NOFlifting.pdf" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
-                </div>
-            </article>
-
-            <article class="paper-card">
-                <div class="paper-title">Communication Lower Bounds for Collision Problems via Density Increment Arguments</div>
-                <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
-                <div class="paper-links">
-                    <a href="https://eccc.weizmann.ac.il/report/2023/159/" class="link-btn"><i class="fa-solid fa-file-lines"></i> ECCC</a>
-                    <a href="CC of Collision.pdf" class="link-btn"><i class="fa-solid fa-display"></i> Slides</a>
-                </div>
-            </article>
-
+        <div class="paper-item">
+            <div class="paper-title">A Lifting Theorem for Hybrid Classical-Quantum Communication Complexity</div>
+            <div class="paper-authors">Xudong Wu, <b>Guangxu Yang</b>, Penghui Yao</div>
+            <div class="paper-links">
+                <a href="https://scirate.com/arxiv/2511.17227" target="_blank">[arXiv]</a>
+            </div>
+        </div>
+        
+        <div class="paper-item">
+            <div class="paper-title">Deterministic Lifting Theorems for One-Way Numbers-on-Forehead Communication</div>
+            <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+            <div class="paper-links">
+                <a href="https://eccc.weizmann.ac.il/report/2025/073/" target="_blank">[ECCC]</a>
+                <a href="https://arxiv.org/abs/2506.12420" target="_blank">[arXiv]</a>
+                <a href="NOFlifting.pdf" target="_blank">[Slides]</a>
+            </div>
         </div>
 
-        <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-color);">
-            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
-                <b>Acknowledgments:</b> I am deeply grateful to my advisor, <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank">Jiapeng Zhang</a>, and my wonderful collaborators <a href="https://sites.google.com/view/miyinghuang" target="_blank">Miryam Huang</a>, <a href="https://sparkmxy.github.io/" target="_blank">Xinyu Mao</a>, <a href="https://sites.google.com/view/shuowang2002" target="_blank">Shuo Wang</a>, <a href="https://ppwetcc.github.io/homepage/" target="_blank">Xudong Wu</a>, and <a href="https://penghuiyao.info/" target="_blank">Penghui Yao</a> for their invaluable insights and partnership in these research projects.
-            </p>
-        </footer>
-    </main>
+        <div class="paper-item">
+            <div class="paper-title">Communication Lower Bounds for Collision Problems via Density Increment Arguments</div>
+            <div class="paper-authors"><b>Guangxu Yang</b>, Jiapeng Zhang</div>
+            <div class="paper-links">
+                <a href="https://eccc.weizmann.ac.il/report/2023/159/" target="_blank">[ECCC]</a>
+                <a href="CC of Collision.pdf" target="_blank">[Slides]</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><b>Acknowledgments:</b> I am deeply grateful to my advisor, <a href="https://sites.google.com/site/jiapeng0708/home" target="_blank">Jiapeng Zhang</a>, and my wonderful collaborators <a href="https://sites.google.com/view/miyinghuang" target="_blank">Miryam Huang</a>, <a href="https://sparkmxy.github.io/" target="_blank">Xinyu Mao</a>, <a href="https://sites.google.com/view/shuowang2002" target="_blank">Shuo Wang</a>, <a href="https://ppwetcc.github.io/homepage/" target="_blank">Xudong Wu</a>, and <a href="https://penghuiyao.info/" target="_blank">Penghui Yao</a> for their invaluable insights and partnership in these research projects.</p>
+    </footer>
+
 </div>
 
 </body>
