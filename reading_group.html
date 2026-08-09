@@ -1,243 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reading Group | Provable and Practical Quantum Advantages</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-    :root {
-        /* USC Official Brand Colors */
-        --usc-cardinal: #990000;
-        --usc-gold: #FFC72C;
-        --usc-gold-light: #fff5d6; 
-        
-        --text-dark: #111111;
-        --text-gray: #333333;
-        --text-light: #555555;
-        --bg-color: #ffffff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A reading group on provable and practical quantum advantage, spanning theory and experiment.">
+    <title>Provable &amp; Practical Quantum Advantage Reading Group | Guangxu Yang</title>
 
-    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet">
 
-    body {
-        font-family: 'Crimson Text', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
-        background-color: var(--bg-color);
-        color: var(--text-gray);
-        margin: 0; 
-        padding: 50px 20px;
-        line-height: 1.6;
-        font-size: 18px;
-        border-top: 6px solid var(--usc-cardinal);
-    }
-
-    .container {
-        max-width: 820px;
-        margin: 0 auto;
-    }
-
-    /* --- Page Header --- */
-    .page-header {
-        margin-bottom: 40px;
-    }
-
-    .page-header h1 {
-        font-family: 'Crimson Text', 'Palatino Linotype', Palatino, Georgia, serif;
-        font-size: 2.4rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        margin: 0 0 10px 0;
-        line-height: 1.2;
-    }
-
-    .page-header .subtitle {
-        font-size: 1.2rem;
-        color: var(--text-light);
-        margin: 0 0 20px 0;
-        font-style: italic;
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 15px;
-        font-size: 1.05rem;
-    }
-
-    a {
-        color: var(--usc-cardinal); 
-        text-decoration: none;
-        transition: all 0.2s ease-in-out;
-    }
-
-    a:hover {
-        color: #7a0000; 
-        text-decoration: underline;
-        text-decoration-color: var(--usc-gold); 
-        text-underline-offset: 4px;
-    }
-
-    /* --- Content Typography --- */
-    h2 {
-        font-family: 'Crimson Text', 'Palatino Linotype', Palatino, Georgia, serif;
-        font-size: 1.6rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        border-bottom: 1.5px solid var(--usc-gold); 
-        padding-bottom: 6px;
-        margin-top: 40px;
-        margin-bottom: 25px;
-    }
-
-    .intro {
-        background-color: #fafafa;
-        border-left: 4px solid var(--usc-cardinal);
-        padding: 15px 20px;
-        margin-bottom: 40px;
-    }
-
-    .intro p {
-        margin: 0;
-    }
-
-    /* --- Paper List --- */
-    .paper-item {
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-        border-bottom: 1px dashed #eaeaea;
-    }
-
-    .paper-item:last-child {
-        border-bottom: none;
-    }
-
-    .paper-title {
-        font-size: 1.15rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        line-height: 1.4;
-        margin-bottom: 6px;
-    }
-    
-    .paper-links {
-        font-size: 0.95rem;
-        color: var(--text-light);
-    }
-
-    .paper-links a {
-        color: var(--usc-cardinal);
-        margin-right: 12px;
-        padding: 0;
-        border-radius: 3px;
-        font-weight: 600;
-    }
-
-    .paper-links a:hover {
-        background-color: transparent;
-        color: #7a0000;
-    }
-
-    /* --- Footer --- */
-    footer {
-        margin-top: 60px;
-        padding-top: 20px;
-        border-top: 1px solid #eaeaea;
-        font-size: 0.95rem;
-        color: var(--text-light);
-        text-align: center;
-    }
-
-    /* Mobile Adaptability */
-    @media (max-width: 600px) {
-        .page-header h1 {
-            font-size: 2rem;
+    <style>
+        :root {
+            --usc-cardinal: #990000;
+            --usc-cardinal-dark: #7a0000;
+            --usc-gold: #FFC72C;
+            --text-dark: #111111;
+            --text-gray: #333333;
+            --text-light: #5a5a5a;
+            --border-light: #e8e8e8;
+            --bg-color: #ffffff;
         }
-    }
-</style>
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Crimson Text', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-gray);
+            margin: 0;
+            padding: 48px 20px 50px;
+            border-top: 6px solid var(--usc-cardinal);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        a {
+            color: var(--usc-cardinal);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: var(--usc-cardinal-dark);
+            text-decoration: underline;
+            text-decoration-color: var(--usc-gold);
+            text-underline-offset: 4px;
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--usc-gold);
+            outline-offset: 3px;
+        }
+
+        .hero {
+            padding: 34px 0 17px;
+        }
+
+        .eyebrow {
+            margin: 0 0 9px;
+            color: var(--usc-cardinal);
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Crimson Text', 'Palatino Linotype', Palatino, Georgia, serif;
+            color: var(--text-dark);
+        }
+
+        h1 {
+            max-width: 850px;
+            margin: 0;
+            font-size: clamp(2.55rem, 6vw, 3.8rem);
+            font-weight: 600;
+            line-height: 1.06;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            margin: 14px 0 0;
+            color: var(--text-light);
+            font-size: clamp(1.18rem, 2.4vw, 1.48rem);
+            font-style: italic;
+        }
+
+        .overview {
+            max-width: 850px;
+            margin: 20px 0 0;
+        }
+
+        .overview p {
+            margin: 0 0 14px;
+        }
+
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            margin: 48px 0 25px;
+            padding-bottom: 6px;
+            border-bottom: 1.5px solid var(--usc-gold);
+            font-size: 1.7rem;
+            font-weight: 600;
+        }
+
+        .reading-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 52px;
+            align-items: start;
+        }
+
+        .track h3 {
+            margin: 0 0 5px;
+            font-size: 1.42rem;
+            font-weight: 600;
+        }
+
+        .track-description {
+            margin: 0 0 23px;
+            color: var(--text-light);
+            font-size: 0.97rem;
+            font-style: italic;
+        }
+
+        .paper-item {
+            margin-bottom: 26px;
+        }
+
+        .paper-title {
+            margin: 0 0 5px;
+            font-size: 1.12rem;
+            font-weight: 600;
+            line-height: 1.38;
+        }
+
+        .paper-meta {
+            margin: 0 0 6px;
+            color: var(--text-light);
+            font-size: 0.93rem;
+            line-height: 1.4;
+        }
+
+        .paper-links {
+            font-size: 0.94rem;
+            font-weight: 600;
+        }
+
+        .paper-links a {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .contact-note {
+            margin-top: 45px;
+            padding-top: 19px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .contact-note p {
+            margin: 0;
+        }
+
+        footer {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 22px;
+            margin-top: 48px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-light);
+            font-size: 0.92rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 760px) {
+            .reading-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .track + .track {
+                margin-top: 14px;
+                padding-top: 29px;
+                border-top: 1px solid var(--border-light);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 30px 17px 40px;
+                font-size: 17px;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+
+            .hero {
+                padding-top: 28px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            a {
+                transition: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <div class="container">
+        <main>
+            <section class="hero" aria-labelledby="page-title">
+                <p class="eyebrow">Reading Group</p>
+                <h1 id="page-title">Provable &amp; Practical Quantum Advantage</h1>
+                <p class="subtitle">Connecting rigorous separations with meaningful experiments.</p>
+            </section>
 
-<div class="container">
-    
-    <header class="page-header">
-        <h1>Reading Group: Provable and Practical Quantum Advantages</h1>
-    </header>
+            <section class="overview" aria-label="Reading group overview">
+                <p>Quantum computers are advancing rapidly in scale, fidelity, coherence, and control. Yet a convincing quantum advantage requires more than a larger device: it requires a well-defined task, a rigorous comparison with classical computation, and an implementation that remains meaningful under realistic constraints.</p>
+                <p>This reading group studies both the theoretical foundations and the experimental realization of quantum advantage, with particular interest in communication, streaming, optimization, and distributed computation.</p>
+            </section>
 
-    <section class="intro">
-        <p>The field of quantum computing is developing at an unprecedented pace. However, there is a pressing need to vigorously develop and rigorously understand <b>provable and practical quantum advantages</b>. This reading group is dedicated to exploring the frontier of this space, bridging the gap between foundational computer science theory and cutting-edge experimental realizations.</p>
-    </section>
+            <section id="reading-list" aria-labelledby="reading-heading">
+                <h2 id="reading-heading">Current Reading List</h2>
 
-    <section class="publications">
-        <h2>Theory</h2>
-        
-        <div class="paper-item">
-            <div class="paper-title">Approximate sampling from decoded quantum interferometry via Markov chain Monte Carlo methods</div>
-            <div class="paper-links">
-                <a href="#"><i class="fa-solid fa-link"></i> Paper Link</a>
-            </div>
-        </div>
+                <div class="reading-grid">
+                    <section class="track" aria-labelledby="theory-heading">
+                        <h3 id="theory-heading">Theory</h3>
+                        <p class="track-description">Separations, algorithms, and classical limitations.</p>
 
-        <div class="paper-item">
-            <div class="paper-title">Distributed quantum advantage for local problems</div>
-            <div class="paper-links">
-                <a href="#"><i class="fa-solid fa-link"></i> Paper Link</a>
-            </div>
-        </div>
+                        <article class="paper-item">
+                            <h4 class="paper-title">Optimization by Decoded Quantum Interferometry</h4>
+                            <p class="paper-meta">Stephen P. Jordan et al. · <em>Nature</em> 646 (2025)</p>
+                            <div class="paper-links">
+                                <a href="https://www.nature.com/articles/s41586-025-09527-5" target="_blank" rel="noopener noreferrer">[Nature]</a>
+                                <a href="https://arxiv.org/abs/2408.08292" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                            </div>
+                        </article>
 
-        <div class="paper-item">
-            <div class="paper-title">Exponential quantum space advantage for approximating maximum directed cut in the streaming model</div>
-            <div class="paper-links">
-                <a href="#"><i class="fa-solid fa-link"></i> Paper Link</a>
-            </div>
-        </div>
+                        <article class="paper-item">
+                            <h4 class="paper-title">Approximate Sampling from Decoded Quantum Interferometry via Markov Chain Monte Carlo Methods</h4>
+                            <p class="paper-meta">Elies Gil-Fuster et al. · arXiv (2026)</p>
+                            <div class="paper-links">
+                                <a href="https://arxiv.org/abs/2607.28120" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                            </div>
+                        </article>
 
-        <div class="paper-item">
-            <div class="paper-title">Optimization by decoded quantum interferometry</div>
-            <div class="paper-links">
-                <a href="#"><i class="fa-solid fa-link"></i> Paper Link</a>
-            </div>
-        </div>
-    </section>
+                        <article class="paper-item">
+                            <h4 class="paper-title">Exponential Quantum Space Advantage for Approximating Maximum Directed Cut in the Streaming Model</h4>
+                            <p class="paper-meta">John Kallaugher, Ojas Parekh, and Nadezhda Voronova · STOC 2024</p>
+                            <div class="paper-links">
+                                <a href="https://arxiv.org/abs/2311.14123" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                                <a href="https://dl.acm.org/doi/10.1145/3618260.3649709" target="_blank" rel="noopener noreferrer">[ACM]</a>
+                            </div>
+                        </article>
 
-    <section class="publications">
-        <h2>Experiment</h2>
-        
-        <div class="paper-item">
-            <div class="paper-title">Demonstrating an unconditional separation between quantum and classical information resources</div>
-            <div class="paper-links">
-                <a href="#"><i class="fa-solid fa-link"></i> Paper Link</a>
-            </div>
-        </div>
+                        <article class="paper-item">
+                            <h4 class="paper-title">Distributed Quantum Advantage for Local Problems</h4>
+                            <p class="paper-meta">Alkida Balliu et al. · STOC 2025</p>
+                            <div class="paper-links">
+                                <a href="https://arxiv.org/abs/2411.03240" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                                <a href="https://dl.acm.org/doi/10.1145/3717823.3718233" target="_blank" rel="noopener noreferrer">[ACM]</a>
+                            </div>
+                        </article>
+                    </section>
 
-        <div class="paper-item">
-            <div class="paper-title">Realization of a quantum streaming algorithm on long-lived trapped-ion qubits</div>
-            <div class="paper-links">
-                <a href="#"><i class="fa-solid fa-link"></i> Paper Link</a>
-            </div>
-        </div>
+                    <section class="track" aria-labelledby="experiment-heading">
+                        <h3 id="experiment-heading">Experiments &amp; Implementations</h3>
+                        <p class="track-description">Hardware demonstrations and scientific applications.</p>
 
-        <div class="paper-item">
-            <div class="paper-title">Reconfigurable optical platform for one-way quantum communication complexity</div>
-            <div class="paper-links">
-                <a href="#"><i class="fa-solid fa-link"></i> Paper Link</a>
-            </div>
-        </div>
+                        <article class="paper-item">
+                            <h4 class="paper-title">Demonstrating an Unconditional Separation between Quantum and Classical Information Resources</h4>
+                            <p class="paper-meta">William Kretschmer et al. · arXiv (2025)</p>
+                            <div class="paper-links">
+                                <a href="https://arxiv.org/abs/2509.07255" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                            </div>
+                        </article>
 
-        <div class="paper-item">
-            <div class="paper-title">Resolving structure in prethermal floquet dynamics with precision quantum computation</div>
-            <div class="paper-links">
-                <a href="#"><i class="fa-solid fa-link"></i> Paper Link</a>
-            </div>
-        </div>
-    </section>
+                        <article class="paper-item">
+                            <h4 class="paper-title">Realization of a Quantum Streaming Algorithm on Long-lived Trapped-ion Qubits</h4>
+                            <p class="paper-meta">Pradeep Niroula et al. · arXiv (2025)</p>
+                            <div class="paper-links">
+                                <a href="https://arxiv.org/abs/2511.03689" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                            </div>
+                        </article>
 
-    <footer>
-        <p>&copy; 2026 Guangxu Yang. Dedicated to the advancement of theoretical and experimental quantum computation.</p>
-    </footer>
+                        <article class="paper-item">
+                            <h4 class="paper-title">Reconfigurable Optical Platform for One-way Quantum Communication Complexity</h4>
+                            <p class="paper-meta">Francesco Mazzoncini, Hugo Defienne, Romain Alléaume, and Sylvain Gigan · arXiv (2026)</p>
+                            <div class="paper-links">
+                                <a href="https://arxiv.org/abs/2607.27181" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                            </div>
+                        </article>
 
-</div>
+                        <article class="paper-item">
+                            <h4 class="paper-title">Resolving Structure in Prethermal Floquet Dynamics with Precision Quantum Computation</h4>
+                            <p class="paper-meta">Eyal Leviatan et al. · arXiv (2026)</p>
+                            <div class="paper-links">
+                                <a href="https://arxiv.org/abs/2607.24937" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </section>
 
+            <section class="contact-note" aria-label="Reading group contact">
+                <p>
+                    To join the reading group or suggest a paper, contact
+                    <a href="mailto:yanggx187@gmail.com">Guangxu Yang</a>.
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Provable &amp; Practical Quantum Advantage Reading Group</p>
+            <p><a href="index.html">← Back to homepage</a> · Last updated August 2026</p>
+        </footer>
+    </div>
 </body>
 </html>
