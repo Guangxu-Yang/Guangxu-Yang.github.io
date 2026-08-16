@@ -2,22 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A reading group on provable and practical quantum advantage, spanning theory and experiment.">
-    <title>Provable &amp; Practical Quantum Advantage Reading Group | Guangxu Yang</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A reading group on quantum factoring algorithms, quantum chemistry, quantum streaming algorithms, and Decoded Quantum Interferometry."
+    >
+
+    <title>
+        Provable &amp; Practical Quantum Advantage Reading Group | Guangxu Yang
+    </title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;display=swap"
+        rel="stylesheet"
+    >
 
     <style>
         :root {
             --usc-cardinal: #990000;
             --usc-cardinal-dark: #7a0000;
             --usc-gold: #FFC72C;
+
             --text-dark: #111111;
             --text-gray: #333333;
             --text-light: #5a5a5a;
+
             --border-light: #e8e8e8;
             --bg-color: #ffffff;
         }
@@ -33,29 +58,41 @@
         }
 
         body {
-            font-family: 'Crimson Text', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
-            background-color: var(--bg-color);
-            color: var(--text-gray);
             margin: 0;
             padding: 48px 20px 50px;
+
             border-top: 6px solid var(--usc-cardinal);
+
+            background-color: var(--bg-color);
+            color: var(--text-gray);
+
+            font-family:
+                "Crimson Text",
+                "Palatino Linotype",
+                "Book Antiqua",
+                Palatino,
+                Georgia,
+                serif;
+
             font-size: 18px;
             line-height: 1.6;
         }
 
         .container {
-            max-width: 920px;
+            max-width: 960px;
             margin: 0 auto;
         }
 
         a {
             color: var(--usc-cardinal);
             text-decoration: none;
+
             transition: color 0.2s ease-in-out;
         }
 
         a:hover {
             color: var(--usc-cardinal-dark);
+
             text-decoration: underline;
             text-decoration-color: var(--usc-gold);
             text-underline-offset: 4px;
@@ -72,9 +109,12 @@
 
         .eyebrow {
             margin: 0 0 9px;
+
             color: var(--usc-cardinal);
+
             font-size: 0.92rem;
             font-weight: 700;
+
             letter-spacing: 0.11em;
             text-transform: uppercase;
         }
@@ -83,22 +123,32 @@
         h2,
         h3,
         h4 {
-            font-family: 'Crimson Text', 'Palatino Linotype', Palatino, Georgia, serif;
             color: var(--text-dark);
+
+            font-family:
+                "Crimson Text",
+                "Palatino Linotype",
+                Palatino,
+                Georgia,
+                serif;
         }
 
         h1 {
-    max-width: 850px;
-    margin: 0;
-    font-size: clamp(2.25rem, 5vw, 3.25rem);
-    font-weight: 600;
-    line-height: 1.06;
-    letter-spacing: -0.02em;
-}
+            max-width: 850px;
+            margin: 0;
+
+            font-size: clamp(2.25rem, 5vw, 3.25rem);
+            font-weight: 600;
+
+            line-height: 1.06;
+            letter-spacing: -0.02em;
+        }
 
         .subtitle {
             margin: 14px 0 0;
+
             color: var(--text-light);
+
             font-size: clamp(1.18rem, 2.4vw, 1.48rem);
             font-style: italic;
         }
@@ -116,30 +166,68 @@
             margin-bottom: 0;
         }
 
+        .topic-nav {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px 20px;
+
+            margin: 27px 0 0;
+            padding: 15px 0;
+
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .topic-nav a {
+            font-size: 0.96rem;
+            font-weight: 600;
+        }
+
         h2 {
             margin: 48px 0 25px;
             padding-bottom: 6px;
+
             border-bottom: 1.5px solid var(--usc-gold);
+
             font-size: 1.7rem;
             font-weight: 600;
         }
 
         .reading-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 52px;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 34px 48px;
             align-items: start;
+        }
+
+        .track {
+            scroll-margin-top: 24px;
+
+            padding-top: 14px;
+
+            border-top: 3px solid var(--usc-cardinal);
         }
 
         .track h3 {
             margin: 0 0 5px;
+
             font-size: 1.42rem;
             font-weight: 600;
+
+            line-height: 1.25;
         }
 
         .track-description {
+            min-height: 3.1em;
+
             margin: 0 0 23px;
+
             color: var(--text-light);
+
             font-size: 0.97rem;
             font-style: italic;
         }
@@ -148,16 +236,24 @@
             margin-bottom: 26px;
         }
 
+        .paper-item:last-child {
+            margin-bottom: 0;
+        }
+
         .paper-title {
             margin: 0 0 5px;
+
             font-size: 1.12rem;
             font-weight: 600;
+
             line-height: 1.38;
         }
 
         .paper-meta {
             margin: 0 0 6px;
+
             color: var(--text-light);
+
             font-size: 0.93rem;
             line-height: 1.4;
         }
@@ -169,12 +265,14 @@
 
         .paper-links a {
             display: inline-block;
+
             margin-right: 10px;
         }
 
         .contact-note {
             margin-top: 45px;
             padding-top: 19px;
+
             border-top: 1px solid var(--border-light);
         }
 
@@ -184,13 +282,19 @@
 
         footer {
             display: flex;
+
             align-items: flex-start;
             justify-content: space-between;
+
             gap: 22px;
+
             margin-top: 48px;
             padding-top: 18px;
+
             border-top: 1px solid var(--border-light);
+
             color: var(--text-light);
+
             font-size: 0.92rem;
         }
 
@@ -201,13 +305,11 @@
         @media (max-width: 760px) {
             .reading-grid {
                 grid-template-columns: 1fr;
-                gap: 18px;
+                gap: 36px;
             }
 
-            .track + .track {
-                margin-top: 14px;
-                padding-top: 29px;
-                border-top: 1px solid var(--border-light);
+            .track-description {
+                min-height: 0;
             }
         }
 
@@ -217,12 +319,16 @@
                 font-size: 17px;
             }
 
-            footer {
-                flex-direction: column;
-            }
-
             .hero {
                 padding-top: 28px;
+            }
+
+            .topic-nav {
+                gap: 6px 16px;
+            }
+
+            footer {
+                flex-direction: column;
             }
         }
 
@@ -241,86 +347,415 @@
 <body>
     <div class="container">
         <main>
-            <section class="hero" aria-labelledby="page-title">
-                <p class="eyebrow">Reading Group</p>
-                <h1 id="page-title">Provable &amp; Practical Quantum Advantage</h1>
+            <section
+                class="hero"
+                aria-labelledby="page-title"
+            >
+                <p class="eyebrow">
+                    Reading Group
+                </p>
+
+                <h1 id="page-title">
+                    Provable &amp; Practical Quantum Advantage
+                </h1>
+
+                <p class="subtitle">
+                    From rigorous quantum speedups to experimentally
+                    meaningful implementations.
+                </p>
             </section>
 
-            <section class="overview" aria-label="Reading group overview">
-                <p>Quantum computers are advancing rapidly in scale, fidelity, coherence, and control. However, demonstrating a convincing and ideally provable quantum advantage requires much more than building a larger device. It requires proposing well-defined and meaningful computational tasks, establishing rigorous separations from the best classical methods, and understanding whether those theoretical advantages survive the noise, resource constraints, and architectural limitations of realistic quantum hardware.</p>
-                <p>This reading group explores the gap between theoretical proposals for quantum advantage and what can actually be implemented and validated on near-term and emerging quantum devices. We study both the foundations of provable quantum advantage and its experimental realization, with particular interest in communication, streaming, optimization, distributed computing, and machine learning</p>
-                <p><strong>Participants:</strong> Minbo Gao, Zhenyu Jiang, Haoyu Wang and Guangxu Yang.</p>
-            </section>
+            <section
+                class="overview"
+                aria-label="Reading group overview"
+            >
+                <p>
+                    Quantum computers are advancing rapidly in scale,
+                    fidelity, coherence, and control. However,
+                    demonstrating a convincing and ideally provable
+                    quantum advantage requires much more than building
+                    a larger device. It requires proposing well-defined
+                    and meaningful computational tasks, establishing
+                    rigorous separations from the best classical methods,
+                    and understanding whether those theoretical advantages
+                    survive the noise, resource constraints, and
+                    architectural limitations of realistic quantum
+                    hardware.
+                </p>
 
-            <section id="reading-list" aria-labelledby="reading-heading">
-                <h2 id="reading-heading">Current Reading List</h2>
+                <p>
+                    This reading group studies four complementary
+                    directions: quantum factoring algorithms, quantum
+                    chemistry, quantum streaming algorithms, and Decoded
+                    Quantum Interferometry. Across these themes, we examine
+                    algorithmic foundations, classical limitations,
+                    resource estimates, experimental implementations, and
+                    the gap between asymptotic advantage and practical
+                    usefulness.
+                </p>
+
+                <p>
+                    <strong>Participants:</strong>
+                    Minbo Gao, Zhenyu Jiang, Haoyu Wang, and Guangxu Yang.
+                </p>
+            </section>
+            <section 
+                id="reading-list"
+                aria-labelledby="reading-heading"
+                >
+                <h2 id="reading-heading">
+                    Current Reading List
+                </h2>
 
                 <div class="reading-grid">
-                    <section class="track" aria-labelledby="theory-heading">
-                        <h3 id="theory-heading">Theory</h3>
-                        <p class="track-description">Separations, algorithms, and classical limitations.</p>
+
+                    <!-- ===================================== -->
+                    <!-- Quantum Factoring Algorithms          -->
+                    <!-- ===================================== -->
+
+                    <section
+                        class="track"
+                        id="factoring"
+                        aria-labelledby="factoring-heading"
+                    >
+                        <h3 id="factoring-heading">
+                            Quantum Factoring Algorithms
+                        </h3>
+
+                        <p class="track-description">
+                            Regev's algorithm, reversible arithmetic,
+                            space–depth tradeoffs, and fault-tolerant
+                            resource estimates for large-scale integer
+                            factorization.
+                        </p>
 
                         <article class="paper-item">
-                            <h4 class="paper-title">Optimization by Decoded Quantum Interferometry</h4>
-                            <p class="paper-meta">Stephen P. Jordan et al. · <em>Nature</em> 646 (2025)</p>
+                            <h4 class="paper-title">
+                                An Efficient Quantum Factoring Algorithm
+                            </h4>
+
+                            <p class="paper-meta">
+                                Oded Regev ·
+                                <em>Journal of the ACM</em>
+                                72, Article 10 (2025)
+                            </p>
+
                             <div class="paper-links">
-                                <a href="https://www.nature.com/articles/s41586-025-09527-5" target="_blank" rel="noopener noreferrer">[Nature]</a>
-                                <a href="https://arxiv.org/abs/2408.08292" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                                <a
+                                    href="https://dl.acm.org/doi/10.1145/3708471"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [JACM]
+                                </a>
+
+                                <a
+                                    href="https://arxiv.org/abs/2308.06572"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [arXiv]
+                                </a>
                             </div>
                         </article>
 
                         <article class="paper-item">
-                            <h4 class="paper-title">Exponential Quantum Space Advantage for Approximating Maximum Directed Cut in the Streaming Model</h4>
-                            <p class="paper-meta">John Kallaugher, Ojas Parekh, and Nadezhda Voronova · STOC 2024</p>
+                            <h4 class="paper-title">
+                                Parallel Spooky Pebbling Makes Regev
+                                Factoring More Practical
+                            </h4>
+
+                            <p class="paper-meta">
+                                Gregory D. Kahanamoku-Meyer,
+                                Seyoon Ragavan, and Katherine Van Kirk ·
+                                EUROCRYPT 2026
+                            </p>
+
                             <div class="paper-links">
-                                <a href="https://arxiv.org/abs/2311.14123" target="_blank" rel="noopener noreferrer">[arXiv]</a>
-                                <a href="https://dl.acm.org/doi/10.1145/3618260.3649709" target="_blank" rel="noopener noreferrer">[ACM]</a>
+                                <a
+                                    href="https://link.springer.com/chapter/10.1007/978-3-032-25291-3_14"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [EUROCRYPT]
+                                </a>
+
+                                <a
+                                    href="https://eprint.iacr.org/2025/1887"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [IACR]
+                                </a>
+
+                                <a
+                                    href="https://arxiv.org/abs/2510.08432"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [arXiv]
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="paper-item">
+                            <h4 class="paper-title">
+                                How to factor 2048 bit RSA integers with less than a million noisy qubits
+                            </h4>
+
+                            <p class="paper-meta">
+                                Craig Gidney · arXiv (2025)
+                            </p>
+
+                            <div class="paper-links">
+                                <a
+                                    href="https://research.google/pubs/how-to-factor-2048-bit-rsa-integers-with-less-than-a-million-noisy-qubits/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [Google Research]
+                                </a>
+
+                                <a
+                                    href="https://arxiv.org/abs/2505.15917"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [arXiv]
+                                </a>
                             </div>
                         </article>
                     </section>
 
-                    <section class="track" aria-labelledby="experiment-heading">
-                        <h3 id="experiment-heading">Experiments &amp; Implementations</h3>
-                        <p class="track-description">Hardware demonstrations and scientific applications.</p>
+                    <!-- ===================================== -->
+                    <!-- Quantum Chemistry                     -->
+                    <!-- ===================================== -->
+
+                    <section
+                        class="track"
+                        id="chemistry"
+                        aria-labelledby="chemistry-heading"
+                    >
+                        <h3 id="chemistry-heading">
+                            Quantum Chemistry
+                        </h3>
+
+                        <p class="track-description">
+                            Two foundational routes to molecular-energy
+                            estimation: fault-tolerant quantum phase
+                            estimation and near-term variational quantum
+                            algorithms.
+                        </p>
 
                         <article class="paper-item">
-                            <h4 class="paper-title">Demonstrating an Unconditional Separation between Quantum and Classical Information Resources</h4>
-                            <p class="paper-meta">William Kretschmer et al. · arXiv (2025)</p>
+                            <h4 class="paper-title">
+                                Simulated Quantum Computation of
+                                Molecular Energies
+                            </h4>
+
+                            <p class="paper-meta">
+                                Alán Aspuru-Guzik, Anthony D. Dutoi,
+                                Peter J. Love, and Martin Head-Gordon ·
+                                <em>Science</em> 309 (2005)
+                            </p>
+
                             <div class="paper-links">
-                                <a href="https://arxiv.org/abs/2509.07255" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                                <a
+                                    href="https://www.science.org/doi/10.1126/science.1113479"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [Science]
+                                </a>
+
+                                <a
+                                    href="https://arxiv.org/abs/quant-ph/0604193"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [arXiv]
+                                </a>
                             </div>
                         </article>
 
                         <article class="paper-item">
-                            <h4 class="paper-title">Realization of a Quantum Streaming Algorithm on Long-lived Trapped-ion Qubits</h4>
-                            <p class="paper-meta">Pradeep Niroula et al. · arXiv (2025)</p>
+                            <h4 class="paper-title">
+                                A variational eigenvalue solver on a
+                                photonic quantum processor
+                            </h4>
+
+                            <p class="paper-meta">
+                                Alberto Peruzzo et al. ·
+                                <em>Nature Communications</em>
+                                5, 4213 (2014)
+                            </p>
+
                             <div class="paper-links">
-                                <a href="https://arxiv.org/abs/2511.03689" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                                <a
+                                    href="https://www.nature.com/articles/ncomms5213"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [Nature Communications]
+                                </a>
+
+                                <a
+                                    href="https://arxiv.org/abs/1304.3061"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [arXiv]
+                                </a>
+                            </div>
+                        </article>
+                    </section>
+
+                    <!-- ===================================== -->
+                    <!-- Quantum Streaming Algorithms          -->
+                    <!-- ===================================== -->
+
+                    <section
+                        class="track"
+                        id="streaming"
+                        aria-labelledby="streaming-heading"
+                    >
+                        <h3 id="streaming-heading">
+                            Quantum Streaming Algorithms
+                        </h3>
+
+                        <p class="track-description">
+                            Provable quantum space advantages for data
+                            streams and their realization on long-lived
+                            trapped-ion qubits.
+                        </p>
+
+                        <article class="paper-item">
+                            <h4 class="paper-title">
+                                Exponential Quantum Space Advantage for
+                                Approximating Maximum Directed Cut in
+                                the Streaming Model
+                            </h4>
+
+                            <p class="paper-meta">
+                                John Kallaugher, Ojas Parekh, and
+                                Nadezhda Voronova · STOC 2024
+                            </p>
+
+                            <div class="paper-links">
+                                <a
+                                    href="https://arxiv.org/abs/2311.14123"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [arXiv]
+                                </a>
+
+                                <a
+                                    href="https://dl.acm.org/doi/10.1145/3618260.3649709"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [ACM]
+                                </a>
                             </div>
                         </article>
 
                         <article class="paper-item">
-                            <h4 class="paper-title">Reconfigurable Optical Platform for One-way Quantum Communication Complexity</h4>
-                            <p class="paper-meta">Francesco Mazzoncini, Hugo Defienne, Romain Alléaume, and Sylvain Gigan · arXiv (2026)</p>
+                            <h4 class="paper-title">
+                                Realization of a Quantum Streaming
+                                Algorithm on Long-lived Trapped-ion
+                                Qubits
+                            </h4>
+
+                            <p class="paper-meta">
+                                Pradeep Niroula et al. · arXiv (2025)
+                            </p>
+
                             <div class="paper-links">
-                                <a href="https://arxiv.org/abs/2607.27181" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+                                <a
+                                    href="https://arxiv.org/abs/2511.03689"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [arXiv]
+                                </a>
+                            </div>
+                        </article>
+                    </section>
+
+                    <!-- ===================================== -->
+                    <!-- Decoded Quantum Interferometry         -->
+                    <!-- ===================================== -->
+
+                    <section
+                        class="track"
+                        id="dqi"
+                        aria-labelledby="dqi-heading"
+                    >
+                        <h3 id="dqi-heading">
+                            Decoded Quantum Interferometry
+                        </h3>
+
+                        <p class="track-description">
+                            Interference-based optimization through
+                            Fourier structure and decoding, including
+                            provable speedups and concrete resource
+                            estimates.
+                        </p>
+
+                        <article class="paper-item">
+                            <h4 class="paper-title">
+                                Optimization by Decoded Quantum
+                                Interferometry
+                            </h4>
+
+                            <p class="paper-meta">
+                                Stephen P. Jordan et al. ·
+                                <em>Nature</em>
+                                646, 831–836 (2025)
+                            </p>
+
+                            <div class="paper-links">
+                                <a
+                                    href="https://www.nature.com/articles/s41586-025-09527-5"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [Nature]
+                                </a>
+
+                                <a
+                                    href="https://arxiv.org/abs/2408.08292"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    [arXiv]
+                                </a>
                             </div>
                         </article>
                     </section>
                 </div>
             </section>
 
-            <section class="contact-note" aria-label="Reading group contact">
+            <section
+                class="contact-note"
+                aria-label="Reading group contact"
+            >
                 <p>
-                    To join the reading group or suggest a paper, contact
-                    <a href="mailto:yanggx187@gmail.com">Guangxu Yang</a>.
+                    To join the reading group or suggest a paper,
+                    contact
+
+                    <a href="mailto:yanggx187@gmail.com">
+                        Guangxu Yang
+                    </a>.
                 </p>
             </section>
         </main>
 
         <footer>
-            <p>Provable &amp; Practical Quantum Advantage Reading Group</p>
-            <p><a href="index.html">← Back to homepage</a> · Last updated August 2026</p>
+            <p>
+                Provable &amp; Practical Quantum Advantage Reading Group
+            </p>
         </footer>
     </div>
 </body>
