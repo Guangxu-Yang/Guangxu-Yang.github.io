@@ -283,7 +283,9 @@
         appendText(row, values ? values.mode || 'Not set' : 'Unavailable', 'status-label');
         appendText(row, values ? submissionLabel(values.slidesSubmitted) : 'Unavailable', 'status-label');
       }
-      appendText(row, student.order <= 31 ? 'Nov 2' : 'Nov 4', 'status-label');
+      const presentationDate = student.presentationDate || (student.order <= 31 ? 'Nov 2' : 'Nov 4');
+      const presentationNote = student.presentationNote ? ` (${student.presentationNote})` : '';
+      appendText(row, presentationDate + presentationNote, 'status-label');
       fragment.append(row);
     }
     body.replaceChildren(fragment);
@@ -541,3 +543,4 @@
   syncStatus();
   refreshPublished();
 })();
+
