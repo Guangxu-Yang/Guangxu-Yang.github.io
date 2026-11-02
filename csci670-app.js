@@ -13,7 +13,13 @@
   const byId = id => document.getElementById(id);
   const students = JSON.parse(byId('roster-data').textContent);
   const studentIds = new Set(students.map(student => String(student.order)));
-  const body = byId('roster-body');
+  const presentationDateFor = student => student.presentationDate || (student.order <= 31 ? 'Nov 2' : 'Nov 4');
+  const sessions = [
+    { date: 'Nov 2', body: byId('roster-body-nov2'), section: byId('session-nov2'), count: byId('count-nov2') },
+    { date: 'Nov 4', body: byId('roster-body-nov4'), section: byId('session-nov4'), count: byId('count-nov4') }
+  ].filter(session => session.body);
+  // Keep already-open pages working while the grouped HTML is being published.
+  if (!sessions.length) sessions.push({ date: null, body: byId('roster-body') });
   const search = byId('name-search');
   const empty = byId('empty-state');
   const count = byId('result-count');
@@ -268,30 +274,39 @@
     const activeId = document.activeElement && document.activeElement.id;
     const terms = printing ? [] : normalize(search.value).split(/\s+/).filter(Boolean);
     const visible = students.filter(student => terms.every(term => normalize(`${student.firstName} ${student.lastName} ${student.lastName}, ${student.firstName}`).includes(term)));
-    const fragment = document.createDocumentFragment();
-    for (const student of visible) {
-      const row = document.createElement('tr');
-      if (dirty.has(String(student.order))) row.className = 'pending-row';
-      appendText(row, student.order);
-      appendText(row, student.lastName);
-      appendText(row, student.firstName);
-      const values = statusFor(student);
-      if (values && isAdmin && !printing) {
-        modeCell(row, student, values.mode);
-        submissionCell(row, student, 'slidesSubmitted', values.slidesSubmitted);
-      } else {
-        appendText(row, values ? values.mode || 'Not set' : 'Unavailable', 'status-label');
-        appendText(row, values ? submissionLabel(values.slidesSubmitted) : 'Unavailable', 'status-label');
+    for (const session of sessions) {
+      const inSession = student => !session.date || presentationDateFor(student) === session.date;
+      const sessionStudents = visible.filter(inSession);
+      const fragment = document.createDocumentFragment();
+      for (const student of sessionStudents) {
+        const row = document.createElement('tr');
+        if (dirty.has(String(student.order))) row.className = 'pending-row';
+        appendText(row, student.order);
+        appendText(row, student.lastName);
+        appendText(row, student.firstName);
+        const values = statusFor(student);
+        if (values && isAdmin && !printing) {
+          modeCell(row, student, values.mode);
+          submissionCell(row, student, 'slidesSubmitted', values.slidesSubmitted);
+        } else {
+          appendText(row, values ? values.mode || 'Not set' : 'Unavailable', 'status-label');
+          appendText(row, values ? submissionLabel(values.slidesSubmitted) : 'Unavailable', 'status-label');
+        }
+        const presentationNote = student.presentationNote ? ` (${student.presentationNote})` : '';
+        appendText(row, presentationDateFor(student) + presentationNote, 'status-label');
+        fragment.append(row);
       }
-      const presentationDate = student.presentationDate || (student.order <= 31 ? 'Nov 2' : 'Nov 4');
-      const presentationNote = student.presentationNote ? ` (${student.presentationNote})` : '';
-      appendText(row, presentationDate + presentationNote, 'status-label');
-      fragment.append(row);
+      session.body.replaceChildren(fragment);
+      if (session.section) session.section.hidden = sessionStudents.length === 0;
+      if (session.count) {
+        const total = students.filter(inSession).length;
+        session.count.textContent = terms.length ? `${sessionStudents.length} of ${total} students` : `${total} students`;
+      }
     }
-    body.replaceChildren(fragment);
     count.textContent = terms.length ? `${visible.length} of ${students.length} students` : `${students.length} students`;
     empty.hidden = visible.length !== 0;
-    if (!printing && activeId && body.contains(byId(activeId))) byId(activeId).focus({ preventScroll: true });
+    const focusTarget = activeId && byId(activeId);
+    if (!printing && focusTarget && sessions.some(session => session.body.contains(focusTarget))) focusTarget.focus({ preventScroll: true });
   }
 
   async function refreshPublished() {
@@ -543,4 +558,3 @@
   syncStatus();
   refreshPublished();
 })();
-
