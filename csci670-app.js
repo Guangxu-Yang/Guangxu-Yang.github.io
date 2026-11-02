@@ -61,6 +61,7 @@
   const timestamp = state => state && state.updatedAt ? Date.parse(state.updatedAt) : 0;
   const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('en').trim();
   const submissionLabel = value => value === true ? 'Submitted' : value === false ? 'Not submitted' : 'Not marked';
+  const modeLabel = value => value === 'Video' ? 'Video submission' : value || 'Not set';
   const formatTime = value => new Date(value).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
   const isObject = value => value !== null && typeof value === 'object' && !Array.isArray(value);
   const isAuthError = error => error instanceof RequestError && (error.code === 401 || error.code === 403);
@@ -222,6 +223,14 @@
     return cell;
   }
 
+  function appendVideoNote(cell, mode) {
+    if (mode !== 'Video') return;
+    const note = document.createElement('small');
+    note.className = 'mode-note';
+    note.textContent = 'Due to travel or injury';
+    cell.append(note);
+  }
+
   function modeCell(row, student, value) {
     const cell = document.createElement('td');
     const select = document.createElement('select');
@@ -231,12 +240,13 @@
     for (const mode of MODES) {
       const option = document.createElement('option');
       option.value = mode || '';
-      option.textContent = mode || 'Not set';
+      option.textContent = modeLabel(mode);
       select.append(option);
     }
     select.value = value || '';
     select.addEventListener('change', () => recordChange(student.order, 'mode', select.value || null));
     cell.append(select);
+    appendVideoNote(cell, value);
     row.append(cell);
   }
 
@@ -289,7 +299,8 @@
           modeCell(row, student, values.mode);
           submissionCell(row, student, 'slidesSubmitted', values.slidesSubmitted);
         } else {
-          appendText(row, values ? values.mode || 'Not set' : 'Unavailable', 'status-label');
+          const presentationModeCell = appendText(row, values ? modeLabel(values.mode) : 'Unavailable', 'status-label');
+          appendVideoNote(presentationModeCell, values && values.mode);
           appendText(row, values ? submissionLabel(values.slidesSubmitted) : 'Unavailable', 'status-label');
         }
         const presentationNote = student.presentationNote ? ` (${student.presentationNote})` : '';
