@@ -279,12 +279,11 @@
       if (values && isAdmin && !printing) {
         modeCell(row, student, values.mode);
         submissionCell(row, student, 'slidesSubmitted', values.slidesSubmitted);
-        submissionCell(row, student, 'reportSubmitted', values.reportSubmitted);
       } else {
         appendText(row, values ? values.mode || 'Not set' : 'Unavailable', 'status-label');
         appendText(row, values ? submissionLabel(values.slidesSubmitted) : 'Unavailable', 'status-label');
-        appendText(row, values ? submissionLabel(values.reportSubmitted) : 'Unavailable', 'status-label');
       }
+      appendText(row, student.order <= 31 ? 'Nov 2' : 'Nov 4', 'status-label');
       fragment.append(row);
     }
     body.replaceChildren(fragment);
