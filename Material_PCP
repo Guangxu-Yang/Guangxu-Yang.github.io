@@ -1,0 +1,537 @@
+
+
+<HTML>
+<style type="text/css"> 
+  body {
+  background-color: #FFFFFF; 
+font-family: 'Lora', serif;
+
+}
+
+
+
+  
+a{
+  text-decoration: none;
+  line-height: 1.3em;
+  color:#848484;
+  font-size:1em;}
+
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:active {text-decoration: none;}
+a:hover{color:#000000;}
+
+a.reverse{ 
+  color:#848484; 
+  font-size:1em;
+} 
+
+a.reverse:hover{color:#000000;}
+
+u {    
+    border-bottom: 1px dotted #848484;
+    text-decoration: none;
+}
+
+ul
+{
+  list-style-type: none;
+  padding: 0;
+
+}
+
+li{
+  line-height: 1.3em; 
+  padding-bottom: 23px; 
+  padding-top: 0px;
+  }
+
+  
+.greylink{ 
+  color : #848484
+}
+
+authors{
+  line-height:1.3em;
+  color:#848484;
+  font-size:.8em;
+  padding-top:2em;
+} 
+
+  .container { width: 1080px; margin: 0 auto; }
+  .left { float: left; width: 1000px; }
+  .right { float: right; width: 500px; } 
+</style>
+
+
+<HEAD>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121338330-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121338330-1');
+</script>
+
+
+
+  
+<link href='https://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
+
+<TITLE>CS252: Analysis of Boolean Functions</TITLE>
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</HEAD>
+
+
+<body>
+
+<main>
+
+<div class="container container_2">
+
+
+  <div class="grid_1 left"> 
+<div style="font-size:25pt; padding-top:2em; padding-bottom:.3em"> 
+    CS 252: Analysis of Boolean Functions
+</div>
+
+
+
+        <div
+      style="line-height:1.6em;font-size:.8em;padding-top:.5em;padding-bottom:2em;      padding-left:1em">
+       (More to be added as the quarter progresses. Drop me a line if you have a suggestion for a course or paper that I've missed.)
+     </div>
+
+
+
+
+
+
+   <h2>General Resources</h2>
+
+     
+
+Surveys, lecture and scribe notes, videos, open problem compendiums, etc.
+
+<ul>
+
+
+  <li>
+     <div
+      style="line-height:1.5em;font-size:.9em;color:#848484;padding-top:.5em;padding-left:1em">
+      
+      <a href="http://www.cs.cmu.edu/~odonnell/papers/analysis-survey.pdf"><u>Some topics in the Analysis of Boolean functions</u></a>, Ryan O'Donnell <br>
+      
+      <a href="http://www.theoryofcomputing.org/articles/gs001/"><u>A brief introduction to Fourier Analysis on the Boolean Cube</u></a>, Ronald de Wolf <br>
+
+
+   <a href="https://cs.nyu.edu/~khot/papers/icm-khot.pdf"><u>Inapproximability of NP-complete problems, discrete Fourier analysis, and geometry</u></a>, Subhash Khot <br>
+
+
+   <a href="http://www.cs.cmu.edu/~odonnell/papers/icm.pdf"><u>Social choice, computational complexity,
+Gaussian geometry, and Boolean functions</u></a>, Ryan O'Donnell<br>
+   
+ <a href="https://simons.berkeley.edu/programs/realanalysis2013"><u>Program in Real analysis in Computer Science</u></a>, Simons Institute <br>
+      
+
+ <a href="https://www.stat.berkeley.edu/~mossel/teach/206af05/index.htm"><u>Scribe notes for a course at UC Berkeley</u></a>, taught by Elchanan Mossel  <br>
+
+ <a href="http://www.cs.huji.ac.il/~nati/PAPERS/uw/root.pdf"><u>Scribe notes for a course at UW Seattle</u></a>, taught by Nati Linial  <br>
+
+ <a href="http://www.cs.huji.ac.il/~analyt/"><u>Scribe notes for a course at Hebrew University</u></a>, taught by Irit Dinur and Ehud Friedgut  <br>
+ 
+                  <a href="http://www.cs.cmu.edu/~odonnell/boolean-analysis/"><u>Scribe notes for a course at CMU</u></a>, taught by Ryan O'Donnell  <br>
+      
+                  <a href="http://pages.cs.wisc.edu/~dieter/Courses/2008s-CS880/lectures.html"><u>Scribe notes for a course at UW Madison</u></a>, taught by Dieter van Melkebeek  <br>
+
+                 <a href="http://www.cs.huji.ac.il/~gkindler/weizmann-course/"><u>Scribe notes for a course at Weizmann</u></a>, taught by Guy Kindler  <br>
+
+       <a href="http://people.maths.ox.ac.uk/~sanders/abf/notes.pdf"><u>Lecture notes for a course at Cambridge</u></a>, taught by Tom Sanders <br>
+		 
+		  <a href="http://www.cs.cmu.edu/~odonnell/aobf12/"><u>Videos of a course at CMU</u></a>, taught by Ryan O'Donnell   <br>
+		  
+		  <a href="https://arxiv.org/abs/1205.0314"><u>Scribe notes for a ten-lecture minicourse</u></a>, taught by Ryan O'Donnell <br>
+
+	  <a href="https://cims.nyu.edu/~regev/teaching/analysis_fall_2012/"><u>Lecture notes for a course at NYU</u></a>, taught by Oded Regev <br>
+		  
+	  <a href="https://www.cs.mcgill.ca/~hatami/comp760-W2017/files/lectures-14.pdf"><u>Lecture notes for a course at McGill</u></a>, taught by Hamed Hatami   <br>
+
+	  <a href="https://filmus.net.technion.ac.il/analysis-of-boolean-functions/"><u>Lecture notes for a course at the Technion</u></a>, taught by Yuval Filmus <br>
+
+	  
+	  <a href="http://cseweb.ucsd.edu/~slovett/teaching/WI17-CSE291/"><u>Lecture notes for a course at UCSD</u></a>, taught by Shachar Lovett   <br>
+
+	  
+	  
+
+	  <a href="https://www.microsoft.com/en-us/research/video/analysis-of-boolean-functions-advances-and-challenges/"><u>Analysis of Boolean functions: advances and challenges</u></a>, video of a talk by Gil Kalai  <br>
+	  
+	  <a href="http://www.contrib.andrew.cmu.edu/~ryanod/?p=2374"><u>Videos of a two-lecture introduction</u></a>, taught by Ryan O'Donnell   <br>
+
+
+
+	  
+      <a href="https://arxiv.org/abs/1204.6447"><u>Open problems in Analysis of Boolean Functions</u></a>, Ryan O'Donnell <br>
+      <a href="https://simons.berkeley.edu/sites/default/files/openprobsmerged.pdf"><u>Real Analysis in Computer Science: A collection of open problems</u></a>, Simons Institute 
+    </div>  
+  </li> 
+</ul>
+
+<h2>References and supplementary reading material</h2>
+
+     
+
+
+<ul>
+
+
+  <li>
+
+  
+  <li>Lectures on Influence, sensitivity, and noise stability
+
+   <div
+      style="line-height:1.5em;font-size:.9em;color:#848484;padding-top:.5em;padding-left:1em">
+
+      <a href="https://ieeexplore.ieee.org/document/4568166/"><u>Collective coin flipping, robust voting schemes and minima of Banzhaf values</u></a>, Michael Ben-Or and Nathan Linial  <br>
+
+     
+      <a href="https://arxiv.org/abs/math/9811157"><u>Noise sensitivity of Boolean functions with applications to percolation</u></a>, Itai Benjamini, Gil Kalai, Oded Schramm  <br>
+
+      <a href="http://www.cs.cmu.edu/~odonnell/papers/thesis.pdf"><u>Computational applications of noise sensitivity</u></a>, Ryan O'Donnell  <br>
+
+      
+     
+      <a href="http://www.theoryofcomputing.org/articles/v007a004/"><u>Tight bounds on the average sensitivity of <i>k</i>-CNF</u></a>, Kazuyuki Amano <br>
+
+      <a href="https://gilkalai.wordpress.com/2008/05/26/natis-influence/"><u>Nati's influence</u></a>, blogpost by Gil Kalai <br>
+
+      
+      </div>
+  </li>
+
+
+
+  <li>Lectures on Halfspaces
+
+   <div
+      style="line-height:1.5em;font-size:.9em;color:#848484;padding-top:.5em;padding-left:1em">
+      <a href="https://www.computer.org/csdl/proceedings/focs/1961/5428/00/00034.pdf"><u>On the characterization of threshold functions</u></a>, Chao-Kong Chow<br>
+     
+      <a href="https://arxiv.org/abs/math/0412377"><u>The noise stability of weighted majority</u></a>, Yuval Peres <br>
+
+
+   
+
+
+      <a href="https://epubs.siam.org/doi/abs/10.1137/090756466"><u>The Chow parameters problem</u></a>, Ryan O'Donnell and Rocco Servedio <br>
+
+
+  <a href="https://www.sciencedirect.com/science/article/pii/S0022000003001818"><u>Learning intersections and thresholds of halfspaces</u></a>, Adam Klivans, Ryan O'Donnell, Rocco Servedio <br>
+      
+      <a href="https://link.springer.com/article/10.1007/BF01305949"><u>Spectral properties of threshold functions</u></a>, Craig Gotsman and Nathan Linial<br>
+      
+      <a href="https://arxiv.org/abs/1210.1283"><u>The correct exponent for the Gotsman-Linial conjecture</u></a>, Daniel Kane<br>
+      <a href="https://link.springer.com/article/10.1186%2Fs40687-014-0013-6"><u>The average sensitivity of an intersection of halfspaces</u></a>, Daniel Kane<br>
+
+        <a href="https://doi.org/10.1017/CBO9780511662089.009"><u>Slicing the hypercube</u></a>, Michael Saks <br>
+
+      </div>
+  </li>
+
+
+
+
+
+  <li>Lectures on Decision trees and query complexity
+
+   <div
+      style="line-height:1.5em;font-size:.9em;color:#848484;padding-top:.5em;padding-left:1em">
+     
+      <a href="https://arxiv.org/abs/cs/0508071"><u>Every decision tree has an influential variable</u></a>, Ryan O'Donnell, Michael Saks, Oded Schramm, Rocco Servedio<br>
+
+     <a href="https://theoryofcomputing.org/articles/v006a004/"><u>Decision trees and influence: an inductive proof of the OSSS inequality</u></a>, Homin Lee<br>
+
+      <a href="https://theoryofcomputing.org/articles/v007a010/"><u>The influence lower bound via query elimination</u></a>, Rahul Jain and Shengyu Zhang <br>
+     
+      
+      <a href="https://epubs.siam.org/doi/abs/10.1137/060669309"><u>Learning monotone decision trees in polynomial time</u></a>, Ryan O'Donnell and Rocco Servedio <br>
+
+
+      <a href="http://rutcor.rutgers.edu/Saks.pdf"><u>Boolean decision trees: Problems and results, old and new</u></a>, Michael Saks <br>
+      
+      <a href="https://arxiv.org/abs/0911.0996"><u>The need for structure in quantum speedups</u></a>, Scott Aaronson and Andris Ambainis <br>
+
+      </div>
+  </li>
+
+
+
+
+
+  <li>Lectures on Boolean circuits
+
+
+    
+   <div
+      style="line-height:1.5em;font-size:.9em;color:#848484;padding-top:.5em;padding-left:1em">
+
+     <a href="https://www.nada.kth.se/~johanh/thesis.pdf"><u>Computational limitations for small-depth circuits</u></a>, Johan H&aring;stad <br>
+
+     <a href="https://www.sciencedirect.com/science/article/pii/S0020019097001312"><u>The average sensitivity of bounded-depth circuits</u></a>, Ravi Boppana <br>
+
+     
+     
+      <a href="https://dl.acm.org/citation.cfm?id=174138"><u>Constant depth circuits, Fourier transform, and learnability</u></a>, Nathan Linial, Yishay Mansour, Noam Nisan <br>
+
+      <a href="http://www.math.tau.ac.il/~mansour/papers/95-jcss.ps.gz"><u>An <i>O</i>(<i>n</i><sup>loglog <i>n</i></sup>) learning algorithm for DNF under the uniform distribution</u></a>, Yishay Mansour <br>
+
+      
+      <a href="http://www.cs.washington.edu/homes/beame/papers/primer.ps"><u>A switching lemma primer</u></a>, Paul Beame <br>
+     
+     <a href="https://www.cs.cmu.edu/~odonnell/complexity/lecture14.pdf"><u>The switching lemma</u></a>, lecture notes by Ryan O'Donnell<br>
+     
+
+     <a href="https://windowsontheory.org/2012/07/10/the-switching-lemma/"><u>The switching lemma</u></a>, blogpost by Parikshit Gopalan<br>
+     
+     <a href="https://eccc.weizmann.ac.il/report/2014/174/"><u>Tight bounds on the Fourier spectrum of AC<sup>0</sup></u></a>, Avishay Tal <br>
+
+
+
+           <a href="https://terrytao.wordpress.com/2007/08/16/gil-kalai-the-entropyinfluence-conjecture/"><u>The entropy-influence conjecture</u></a>, blogpost by Gil Kalai
+     
+
+   </div>
+   
+  </li>
+
+
+
+ <li>Lectures on Hardness amplification
+
+
+    
+   <div
+      style="line-height:1.5em;font-size:.9em;color:#848484;padding-top:.5em;padding-left:1em">
+
+     <a href="https://cseweb.ucsd.edu/~russell/hardcore.ps"><u>Hard-core distributions for somewhat hard problems</u></a>, Russell Impagliazzo <br>
+
+     <a href="https://link.springer.com/chapter/10.1007/978-3-642-22670-0_23"><u>On Yao's XOR lemma</u></a>, Oded Goldreich, Noam Nisan, and Avi Wigderson<br>
+
+     <a href="https://www.sciencedirect.com/science/article/pii/S0022000004000066"><u>Hardness amplification within NP</u></a>, Ryan O'Donnell <br>
+
+
+           <a href="https://link.springer.com/article/10.1023/A:1022949332276"><u>Boosting and hard-core set construction</u></a>, Adam Klivans and Rocco Servedio<br>
+     
+     
+      <a href="https://lucatrevisan.wordpress.com/2007/11/06/the-impagliazzo-hard-core-set-theorem/"><u>The Impagliazzo hard-core set theorem</u></a>, blogpost by Luca Trevisan
+
+
+   </div>
+   
+  </li>
+
+
+
+  <li>Lectures on Learning under the uniform distribution
+
+
+    
+   <div
+      style="line-height:1.5em;font-size:.9em;color:#848484;padding-top:.5em;padding-left:1em">
+
+
+
+
+
+
+          <a href="https://dl.acm.org/citation.cfm?id=73010"><u>A hard-core predicate for all one-way functions</u></a>, Oded Goldreich and Leonid Levin <br>
+     
+ 
+
+           <a href="https://epubs.siam.org/doi/abs/10.1137/0222080"><u>Learning decision trees using the Fourier spectrum</u></a>, Eyal Kushilevitz and Yishay Mansour <br>
+     
+
+
+      <a href="https://www.sciencedirect.com/science/article/pii/S0022000004000418"><u>Learning functions of <i>k</i> relevant variables</u></a>, Elchanan Mossel, Ryan O'Donnell, Rocco Servedio<br>
+      
+     <a href="https://dl.acm.org/citation.cfm?id=2728167"><u>Finding correlations in subquadratic time, with applications to learning parities and the closest pair problem</u></a>, Gregory Valiant<br>
+
+
+     <a href="https://epubs.siam.org/doi/abs/10.1137/060649057"><u>Agnostically learning halfspaces</u></a>, Adam Kalai, Adam Klivans, Yishay Mansour, Rocco Servedio<br>
+
+
+          <a href="https://dl.acm.org/citation.cfm?id=1374376.1374451"><u>Agnostically learning decision trees</u></a>, Parikshit Gopalan, Adam Kalai, Adam Klivans<br>
+     
+
+     
+ <a href="http://eatcs.org/images/bulletin/beatcs89.pdf"><u>Learning Boolean functions under the uniform distribution via the Fourier transform</u></a>, Johannes K&ouml;bler and Wolfgang Lindner  <br>
+
+     
+      <a href="https://rjlipton.wordpress.com/2009/06/04/the-junta-problem/"><u>The junta problem</u></a>, blogpost by Dick Lipton and Ken Regan <br>
+     
+      <a href="https://windowsontheory.org/2012/11/27/755/"><u>Learning juntas</u></a>, blogpost by Parikshit Gopalan<br>
+
+   </div>
+   
+  </li>
+
+ 
+  <li>Lectures on Property testing
+
+
+    
+   <div
+      style="line-height:1.5em;font-size:.9em;color:#848484;padding-top:.5em;padding-left:1em">
+
+
+
+    <a href="https://www.sciencedirect.com/science/article/pii/002200009390044W"><u>Self-testing/correcting with applications to numerical problems</u></a>, Manuel Blum, Michael Luby, Ronitt Rubinfeld
+ <br>
+
+ <a href="https://ieeexplore.ieee.org/document/556674/"><u>Linearity testing in characteristic two</u></a>, Mihir Bellare, David Coppersmith, Johan H&aring;stad, Marcos Kiwi, Madhu Sudan
+ <br>
+
+
+ <a href="https://dl.acm.org/citation.cfm?id=1536414.1536437"><u>Testing juntas nearly optimally</u></a>, Eric Blais <br>
+
+
+
+ <a href="http://www.cs.columbia.edu/~rocco/Teaching/S14/Scribe/lectures_full.pdf"><u>Sublinear algorithms in learning and testing</u></a>, scribe notes for a course taught by Rocco Servedio <br>
+ 
+ <a href="http://eldar.cswp.cs.technion.ac.il/wp-content/uploads/sites/55/2016/04/surv.pdf"><u>The art of uninformed decisions: A primer to property testing</u></a>, Eldar Fischer <br>
+
+ 
+ <a href="http://reports-archive.adm.cs.cmu.edu/anon/2012/abstracts/12-101.html"><u>Testing properties of Boolean functions</u></a>, Eric Blais <br>
+
+
+ 
+   </div>
+   </li>
+  
+
+  
+
+  <li>Lectures on Hypercontractivity
+
+
+    
+   <div
+      style="line-height:1.5em;font-size:.9em;color:#848484;padding-top:.5em;padding-left:1em">
+
+
+    <a href="http://www.numdam.org/item/AIF_1970__20_2_335_0"><u>&Eacute;tude des coefficients Fourier des fonctions de <i>L<sup>p</sup>(G)</i></u></a>, Aline Bonami
+ <br>
+
+     
+
+    <a href="https://ieeexplore.ieee.org/document/21923/"><u>The influence of variables on Boolean functions</u></a>, Jeff Kahn, Gil Kalai, Nathan Linial 
+ <br>
+
+    <a href="https://projecteuclid.org/euclid.aop/1176988612"><u>On Russo's approximate zero-one law</u></a>, Michel Talagrand
+ <br>
+
+
+ 
+
+ <a href="https://link.springer.com/article/10.1007/PL00009809"><u>Boolean functions with low average sensitivity depend on few coordinates</u></a>, Ehud Friedgut <br>
+
+ <a href="https://arxiv.org/abs/1101.2913"><u>Hypercontractivity and its applications</u></a>, Punyashloka Biswal
+
+ 
+   </div>
+   </li>
+  
+
+  <li>Lectures on Limit theorems and Gaussian analysis
+
+
+    
+   <div
+      style="line-height:1.5em;font-size:.9em;color:#848484;padding-top:.5em;padding-left:1em">
+
+
+     
+    <a href="https://link.springer.com/article/10.1007/BF00532234"><u>Geometric bounds on the Ornstein-Uhlenbeck velocity process</u></a>, Christer Borell
+ <br>
+
+
+    <a href="https://epubs.siam.org/doi/10.1137/S0097539705447372"><u>Optimal inapproximability results for MAX‐CUT and other 2‐variable CSPs?</u></a>, Subhash Khot, Guy Kindler, Elchanan Mossel, Ryan O'Donnell
+ <br>
+     
+
+
+     
+
+     <a href="http://annals.math.princeton.edu/2010/171-1/p05"><u>Noise stability of functions with low influences: Invariance and optimality</u></a>, Elchanan Mossel, Ryan O'Donnell, Krzysztof Oleszkiewicz
+ <br>
+     
+
+     <a href="https://link.springer.com/article/10.1007/s11856-018-1646-8"><u>Gaussian noise sensitivity and Fourier tails</u></a>, Guy Kindler, Naomi Kirshner, Ryan O'Donnell <br>
+     
+
+     <a href="https://terrytao.wordpress.com/2010/01/05/254a-notes-2-the-central-limit-theorem/"><u>The central limit theorem</u></a>, lecture notes by Terence Tao <br>
+     
+     
+     <a href="https://www.youtube.com/watch?v=2tgP9IjyBls"><u>Invariance principles in theoretical computer science</u></a>, video of a talk by Ryan O'Donnell <br>
+
+
+    <a href="https://repositories.lib.utexas.edu/handle/2152/30359"><u>Computational applications of invariance principles</u></a>, Raghu Meka <br>
+
+
+    <a href="https://www.jstor.org/stable/2974762"><u>Alan Turing and the central limit theorem</u></a>, Sandy Zabell <br>
+    
+   </div>
+</li>   
+
+
+
+
+</ul>
+
+
+  
+<br>
+
+
+   
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  </div>
+</div> 
+
+
+
+
+  <div class="clear"><p> </p></div>
+
+
+</main>
+
+
+</body>
+</html>
+
